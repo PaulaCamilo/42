@@ -11,7 +11,7 @@
 /* ************************************************************************** */
 
 #include "libft.h"
-// #include <stdio.h>
+//#include <stdio.h>
 
 int	ft_isalnum(int p)
 {
@@ -19,6 +19,7 @@ int	ft_isalnum(int p)
 		return (1);
 	return (0);
 }
+
 
 /*
 int	main(void)
@@ -29,7 +30,7 @@ int	main(void)
 	char d = '8';
 
 	printf("The value of a, b, c, d is: %d, %d, %d, %d\n", ft_isalnum(a),
-			//ft_isalnum(b), ft_isalnum(c), ft_isalnum(d));
+			ft_isalnum(b), ft_isalnum(c), ft_isalnum(d));
 	return (0);
 }
 */

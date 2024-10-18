@@ -11,6 +11,7 @@
 /* ************************************************************************** */
 
 #include "libft.h"
+//#include <stdio.h>
 
 int	ft_isascii(int p)
 {
@@ -18,3 +19,15 @@ int	ft_isascii(int p)
 		return (1);
 	return (0);
 }
+
+/*
+int	main(void)
+{
+	int	a = 130;
+	int b = 88;
+
+	printf("a is ascii: %d\nb is ascii: %d\n",
+			ft_isascii(a), ft_isascii(b));
+	return (0);
+}
+*/

@@ -11,7 +11,7 @@
 /* ************************************************************************** */
 
 #include "libft.h"
-// #include <stdio.h>
+//#include <stdio.h>
 
 int	ft_isalpha(int p)
 {
@@ -27,7 +27,7 @@ int	main(void)
 	char b = '3';
 
 	printf("The value of a is: %d\nThe value of b is: %d\n",
-			// ft_isalpha(z), ft_isalpha(x));
+			ft_isalpha(a), ft_isalpha(b));
 	return(0);
 }
 */

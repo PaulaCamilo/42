@@ -11,6 +11,7 @@
 /* ************************************************************************** */
 
 #include "libft.h"
+//#include <stdio.h>
 
 int	ft_isprint(int p)
 {
@@ -18,3 +19,15 @@ int	ft_isprint(int p)
 		return (1);
 	return (0);
 }
+
+/*
+int	main(void)
+{
+	int	a = 130;
+	int b = 88;
+
+	printf("a is printable: %d\nb is printable: %d\n",
+			ft_isprint(a), ft_isprint(b));
+	return (0);
+}
+*/

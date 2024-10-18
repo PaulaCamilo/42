@@ -10,4 +10,12 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "libft.h"
+#include <stdio.h>
 
+int	ft_strlen(char *str);
+
+unsigned int	ft_strlcpy(char *dest, char *src, unsigned int size)
+{
+	
+}

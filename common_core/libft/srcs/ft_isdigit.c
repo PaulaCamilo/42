@@ -27,7 +27,7 @@ int	main(void)
 	int b = 'P';
 
 	printf("The value of a is: %d\nThe value of b is: %d\n",
-			// ft_isdigit(a), ft_isdigit(b));
+			ft_isdigit(a), ft_isdigit(b));
 	return (0);
 }
 */
