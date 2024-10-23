@@ -1,26 +1,38 @@
 
 		function	test
 
-• isalpha 	ok		ok
-• isdigit	ok		ok
-• isalnum	ok		ok
-• isascii	ok		ok
-• isprint	ok		ok
-• strlen	ok		ok
-• memset	ok		ok
-• bzero		ok	
-• memcpy	ok
-• memmove	ok
-• strlcpy	ok
-• strlcat	ok
-• toupper	ok		ok
-• tolower	ok		ok
-• strchr	ok
-• strrchr	ok
-• strncmp	ok
-• memchr	ok
-• memcmp	ok
-• strnstr	ok
-• atoi		ok		ok
-• calloc	ok		
-• strdup	ok		
+• ft_isalpha 	ok		ok
+• ft_isdigit	ok		ok
+• ft_isalnum	ok		ok
+• ft_isascii	ok		ok
+• ft_isprint	ok		ok
+• ft_strlen	ok		ok
+• ft_memset	ok		ok
+• ft_bzero	ok	
+• ft_memcpy	ok
+• ft_memmove	ok
+• ft_strlcpy	ok
+• ft_strlcat	ok
+• ft_toupper	ok		ok
+• ft_tolower	ok		ok
+• ft_strchr	ok
+• ft_strrchr	ok
+• ft_strncmp	ok
+• ft_memchr	ok
+• ft_memcmp	ok
+• ft_strnstr	ok
+• ft_atoi	ok		ok
+• ft_calloc	ok		
+• ft_strdup	ok		
+
+• ft_substr	ok		
+• ft_strjoin	ok		
+• ft_strtrim	
+• ft_
+• ft_
+• ft_
+• ft_
+• ft_
+• ft_
+• ft_
+• ft_
