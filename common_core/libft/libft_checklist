@@ -1,0 +1,26 @@
+
+		function	test
+
+• isalpha 	ok		ok
+• isdigit	ok		ok
+• isalnum	ok		ok
+• isascii	ok		ok
+• isprint	ok		ok
+• strlen	ok		ok
+• memset	ok		ok
+• bzero		ok	
+• memcpy	ok
+• memmove	ok
+• strlcpy	ok
+• strlcat	ok
+• toupper	ok		ok
+• tolower	ok		ok
+• strchr	ok
+• strrchr	ok
+• strncmp	ok
+• memchr	ok
+• memcmp	ok
+• strnstr	ok
+• atoi		ok		ok
+• calloc	ok		
+• strdup	ok		
