@@ -59,7 +59,7 @@ static int	safe_malloc(char **token_v, int pos, size_t buffer)
 
 	i = 0;
 	token_v[pos] = malloc(buffer);
-	if (NULL == token_v[pos])
+	if (token_v[pos] == NULL)
 	{
 		while (i < pos)
 			free(token_v[i++]);
