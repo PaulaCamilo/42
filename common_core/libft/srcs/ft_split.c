@@ -43,12 +43,10 @@ static size_t	count_tokens(char const *s, char delimeter)
 	{
 		while (*s == delimeter && *s)
 			++s;
-		while (*s != delimeter && *s)
-		{
+		if (*s)
 			++tokens;
+		while (*s != delimeter && *s)
 			++s;
-		}
-		++s;
 	}
 	return (tokens);
 }
@@ -90,8 +88,8 @@ static int	fill_array(char **token_v, char const *s, char delimeter)
 			if (safe_malloc(token_v, i, len + 1))
 				return (1);
 			ft_strlcpy(token_v[i], s - len, len + 1);
+			++i;
 		}
-		++i;
 	}
 	return (0);
 }
