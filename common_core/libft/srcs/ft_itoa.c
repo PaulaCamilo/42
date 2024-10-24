@@ -18,13 +18,13 @@ char	*ft_itoa(int n)
 {
 	char			*str;
 	long			len;
-	unsigned int	number;
+	int				number;
 
 	len = number_len(n);
 	str = (char *)malloc(sizeof(char) * (len + 1));
 	if (str == NULL)
 		return (NULL);
-	if (number < 0)
+	if (n < 0)
 	{
 		str [0] = '-';
 		number = -n;
@@ -50,7 +50,10 @@ static long int	number_len(int n)
 	len = 0;
 	if (n <= 0)
 		len = 1;
-	while (n /= 10)
+	while (n)
+	{
+		n /= 10;
 		len++;
+	}
 	return (len);
 }

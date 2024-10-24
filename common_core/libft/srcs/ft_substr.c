@@ -17,12 +17,10 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	size_t	p;
 	char	*str;
 
-	if (!s)
-		return (NULL);
-	if (start > (unsigned int)ft_strlen(s))
+	if (!s || !len || (start > (unsigned int)ft_strlen(s)))
 		return (ft_strdup(""));
-	if (len > (unsigned int)ft_strlen(s + start))
-		len = ft_strlen(s + start);
+	if (len > (unsigned int)ft_strlen(s) - start)
+		len = ft_strlen(s) - start;
 	str = (char *)malloc(sizeof(char) * (len + 1));
 	if (!str)
 		return (NULL);
@@ -32,5 +30,6 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 		str[p] = s[start + p];
 		p++;
 	}
+	str[p] = '\0';
 	return (str);
 }

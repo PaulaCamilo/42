@@ -28,27 +28,25 @@ char	**ft_split(char const *s, char c)
 	token_v = malloc((tokens + 1) * sizeof(char *));
 	if (NULL == token_v)
 		return (NULL);
-	token_v[tokens] = NULL;
 	if (fill_array(token_v, s, c))
 		return (NULL);
+	token_v[tokens] = NULL;
 	return (token_v);
 }
 
 static size_t	count_tokens(char const *s, char delimeter)
 {
 	size_t	tokens;
-	int		inside_token;
 
-	token = 0;
+	tokens = 0;
 	while (*s)
 	{
-		inside_token = 0;
 		while (*s == delimeter && *s)
 			++s;
 		while (*s != delimeter && *s)
 		{
 			++tokens;
-			inside_token = 42;
+			++s;
 		}
 		++s;
 	}
