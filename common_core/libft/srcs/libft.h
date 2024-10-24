@@ -17,6 +17,7 @@
 # include <stdio.h>
 # include <strings.h>
 # include <string.h>
+# include <limits.h>
 
 // Libc functions
 int		ft_isalpha(int p);

@@ -20,6 +20,8 @@ char	*ft_itoa(int n)
 	long			len;
 	int				number;
 
+	if (n == INT_MIN)
+		return (ft_strdup("-2147483648"));
 	len = number_len(n);
 	str = (char *)malloc(sizeof(char) * (len + 1));
 	if (str == NULL)
