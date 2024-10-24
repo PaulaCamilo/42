@@ -1,36 +1,56 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_substr.c                                        :+:      :+:    :+:   */
+/*   ft_itoa.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ppaula-d <ppaula-d@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/23 10:46:39 by ppaula-d          #+#    #+#             */
-/*   Updated: 2024/10/23 10:46:42 by ppaula-d         ###   ########.fr       */
+/*   Created: 2024/10/24 10:30:08 by ppaula-d          #+#    #+#             */
+/*   Updated: 2024/10/24 10:30:11 by ppaula-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_substr(char const *s, unsigned int start, size_t len)
-{
-	size_t	p;
-	char	*str;
+static long int	number_len(int n);
 
-	if (!s)
-		return (NULL);
-	if (start > (unsigned int)ft_strlen(s))
-		return (ft_strdup(""));
-	if (len > (unsigned int)ft_strlen(s + start))
-		len = ft_strlen(s + start);
+char	*ft_itoa(int n)
+{
+	char			*str;
+	long			len;
+	unsigned int	number;
+
+	len = number_len(n);
 	str = (char *)malloc(sizeof(char) * (len + 1));
-	if (!str)
+	if (str == NULL)
 		return (NULL);
-	p = 0;
-	while (p < len)
+	if (number < 0)
 	{
-		str[p] = s[start + p];
-		p++;
+		str [0] = '-';
+		number = -n;
+	}
+	else
+		number = n;
+	if (number == 0)
+		str[0] = '0';
+	str[len] = '\0';
+	while (number != '\0')
+	{
+		str[len - 1] = (number % 10) + '0';
+		number = number / 10;
+		len--;
 	}
 	return (str);
+}
+
+static long int	number_len(int n)
+{
+	long int	len;
+
+	len = 0;
+	if (n <= 0)
+		len = 1;
+	while (n /= 10)
+		len++;
+	return (len);
 }

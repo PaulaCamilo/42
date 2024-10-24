@@ -10,40 +10,40 @@
 #                                                                              #
 # **************************************************************************** #
 
-# Variables
-NAME = libft.a
-SRC_DIR = srcs
-INC_DIR = includes
-CC = cc
-CFLAGS = -Wall -Wextra -Werror -I $(INC_DIR)
-SRCS = $(wildcard $(SRC_DIR)/*.c)
-OBJS = $(SRCS:$(SRC_DIR)/%.c=$(SRC_DIR)/%.o)
-AR = ar rcs
-RM = rm -f
+LIB			= libft
 
-# Static lib from object files
-$(NAME): $(OBJS)
-	$(AR) $(NAME) $(OBJS)
+SRCS        = ft_isalpha.c ft_isdigit.c ft_isalnum.c ft_isascii.c ft_isprint.c \
+              ft_strlen.c  ft_memset.c ft_bzero.c ft_memcpy.c ft_memmove.c \
+              ft_strlcpy.c ft_strlcat.c ft_toupper.c ft_tolower.c ft_strchr.c \
+              ft_strrchr.c ft_strncmp.c ft_memchr.c ft_memcmp.c ft_strnstr.c \
+              ft_atoi.c ft_calloc.c ft_strdup.c ft_substr.c ft_strjoin.c \
+              ft_strtrim.c ft_split.c ft_itoa.c ft_strmapi.c ft_striteri.c \
+              ft_putchar_fd.c ft_putstr_fd.c ft_putendl_fd.c ft_putnbr_fd.c \
 
-# Compile .c files to .o files
-%.o: $(SRC_DIR)/%.c
-	$(CC) $(CFLAGS) -c $< -o $@
+COMPILER	= cc
 
-# Build the library (default target)
-all:			$(NAME)
+FLAGS		= -Wall -Wextra -Werror
 
-$(NAME):		$(OBJS)
-				ar rcs $(NAME) $(OBJS)
+OUTN		= $(LIB).a
 
-#Remove object files
+CFILES		= $(SRCS:%.c)
+
+OFILES		= $(SRCS:%.o)
+
+NAME		= $(OUTN)
+
+$(NAME):
+			$(COMPILER) $(FLAGS) -c $(CFILES) -I./
+			ar -rcs $(OUTN) $(OFILES)
+
+all: 		$(NAME)
+
 clean:
-	$(RM) $(OBJS)
+			rm -f $(NAME) $(OFILES)
 
-# Remove object files and static library
-fclean: clean
-	$(RM) $(NAME)
+fclean:		clean
+			rm -f $(NAME)
 
-# Recompile the entire library, cleaning everything and then building the library
-re: fclean all
+re:			fclean all
 
-.PHONY: all clean fclean re
+.PHONY:		all, clean, fclean, re
