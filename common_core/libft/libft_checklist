@@ -8,31 +8,31 @@
 • ft_isprint	ok		ok
 • ft_strlen	ok		ok
 • ft_memset	ok		ok
-• ft_bzero	ok	
-• ft_memcpy	ok
-• ft_memmove	ok
-• ft_strlcpy	ok
-• ft_strlcat	ok
+• ft_bzero	ok		
+• ft_memcpy	ok		
+• ft_memmove	ok		
+• ft_strlcpy	ok		
+• ft_strlcat	ok		
 • ft_toupper	ok		ok
 • ft_tolower	ok		ok
-• ft_strchr	ok
-• ft_strrchr	ok
-• ft_strncmp	ok
-• ft_memchr	ok
-• ft_memcmp	ok
-• ft_strnstr	ok
+• ft_strchr	ok		
+• ft_strrchr	ok		
+• ft_strncmp	ok		
+• ft_memchr	ok		
+• ft_memcmp	ok		
+• ft_strnstr	ok		
 • ft_atoi	ok		ok
 • ft_calloc	ok		
 • ft_strdup	ok		
 
 • ft_substr	ok		
 • ft_strjoin	ok		
-• ft_strtrim	
-• ft_
-• ft_
-• ft_
-• ft_
-• ft_
-• ft_
-• ft_
-• ft_
+• ft_strtrim	ok		
+• ft_split	ok		
+• ft_itoa	ok		
+• ft_strmapi	ok		
+• ft_striteri	ok		
+• ft_putchar_fd	ok		
+• ft_putstr_fd	ok		
+• ft_putendl_fd	ok		
+• ft_putnbr_fd	ok		
