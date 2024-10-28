@@ -1,22 +1,22 @@
 
-		function	test
+		function	test		norm
 
-• ft_isalpha 	ok		ok
-• ft_isdigit	ok		ok
-• ft_isalnum	ok		ok
-• ft_isascii	ok		ok
-• ft_isprint	ok		ok
-• ft_strlen	ok		ok
-• ft_memset	ok		ok
-• ft_bzero	ok		
-• ft_memcpy	ok		
-• ft_memmove	ok		
-• ft_strlcpy	ok		
-• ft_strlcat	ok		
-• ft_toupper	ok		ok
-• ft_tolower	ok		ok
-• ft_strchr	ok		
-• ft_strrchr	ok		
+• ft_isalpha 	ok		ok		ok
+• ft_isdigit	ok		ok		ok
+• ft_isalnum	ok		ok		ok
+• ft_isascii	ok		ok		ok
+• ft_isprint	ok		ok		ok
+• ft_strlen	ok		ok		ok
+• ft_memset	ok		ok		ok
+• ft_bzero	ok		ok		ok
+• ft_memcpy	ok		ok		ok
+• ft_memmove	ok					
+• ft_strlcpy	ok				
+• ft_strlcat	ok				
+• ft_toupper	ok		ok		
+• ft_tolower	ok		ok		
+• ft_strchr	ok				
+• ft_strrchr	ok				
 • ft_strncmp	ok		
 • ft_memchr	ok		
 • ft_memcmp	ok		

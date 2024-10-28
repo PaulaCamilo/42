@@ -1,32 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isdigit.c                                       :+:      :+:    :+:   */
+/*   ft_memcpy.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ppaula-d <ppaula-d@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/17 14:23:02 by ppaula-d          #+#    #+#             */
-/*   Updated: 2024/10/17 14:23:04 by ppaula-d         ###   ########.fr       */
+/*   Created: 2024/10/17 14:26:25 by ppaula-d          #+#    #+#             */
+/*   Updated: 2024/10/17 14:26:32 by ppaula-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_isdigit(int p)
+void	*ft_memcpy(void *dest, const void *src, size_t n)
 {
-	if ('0' <= p && p <= '9')
-		return (1);
-	return (0);
-}
+	char		*d;
+	size_t				p;
+	const char		*s;
 
-/*
-int	main(void)
-{
-	int	a = '8';
-	int b = 'P';
-
-	printf("The value of a is: %d\nThe value of b is: %d\n",
-			ft_isdigit(a), ft_isdigit(b));
-	return (0);
+	if (!dest || !src)
+		return (NULL);
+	d = (char *)dest;
+	s = (const char *)src;
+	p = 0;
+	while (p < n)
+	{
+		d[p] = s[p];
+		p++;
+	}
+	return (dest);
 }
-*/

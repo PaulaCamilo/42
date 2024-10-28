@@ -1,30 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_calloc.c                                        :+:      :+:    :+:   */
+/*   ft_isdigit.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ppaula-d <ppaula-d@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/17 14:29:58 by ppaula-d          #+#    #+#             */
-/*   Updated: 2024/10/17 14:30:05 by ppaula-d         ###   ########.fr       */
+/*   Created: 2024/10/17 14:23:02 by ppaula-d          #+#    #+#             */
+/*   Updated: 2024/10/17 14:23:04 by ppaula-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_calloc(size_t nmemb, size_t size)
+int	ft_isdigit(int c)
 {
-	void	*p;
-	size_t	total_size;
-
-	if (nmemb == 0 || size == 0)
-		return (malloc(0));
-	total_size = nmemb * size;
-	if (total_size / nmemb != size)
-		return (NULL);
-	p = malloc(total_size);
-	if (p == NULL)
-		return (NULL);
-	ft_bzero(p, total_size);
-	return (p);
+	if ('0' <= c && c <= '9')
+		return (1);
+	return (0);
 }

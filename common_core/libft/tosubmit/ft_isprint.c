@@ -18,15 +18,3 @@ int	ft_isprint(int c)
 		return (1);
 	return (0);
 }
-
-/*
-int	main(void)
-{
-	int	a = 130;
-	int b = 88;
-
-	printf("a is printable: %d\nb is printable: %d\n",
-			ft_isprint(a), ft_isprint(b));
-	return (0);
-}
-*/
