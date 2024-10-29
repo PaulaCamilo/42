@@ -18,13 +18,3 @@ int	ft_tolower(int p)
 		return (p + 32);
 	return (p);
 }
-
-/*
-int	main(void)
-{
-	int	p = 66;
-
-	printf("The lowercase of %c is: %c\n", p, ft_tolower(p));
-	return (0);
-}
-*/

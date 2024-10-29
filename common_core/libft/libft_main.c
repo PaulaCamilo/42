@@ -209,7 +209,275 @@ int	main(void)
 	test_mmcpy_overlap();
 	return (0);
 }
+
 #--------------------------------------=---------------------------------------#
 #			         		      ft_memmove               		    	       #
 #--------------------------------------=---------------------------------------#
 
+
+#include <stdio.h>
+
+void	test_memmove_overlap(void)
+{
+	char	str[] = "Hello, World!";
+	printf("Original string: %s\n", str);
+	ft_memmove((str + 7), str, 5);
+	printf("After ft_memmove with overlap: %s\n", str);
+}
+
+int	main(void)
+{
+	test_memmove_overlap();
+	return (0);
+}
+
+#--------------------------------------=---------------------------------------#
+#			         		      ft_strlcpy               		    	       #
+#--------------------------------------=---------------------------------------#
+
+
+#include <stdio.h>
+#include <string.h>
+
+void	test_ft_strlcpy(void)
+{
+	char		dest[50];
+	const char	*src;
+	size_t		size;
+	size_t		result;
+
+	//test 1
+	src = "42 Porto";
+	size = 42;
+	result = ft_strlcpy(dest, src, size);
+	printf("Given src: '%s', Actual dest: '%s'\n", src, dest);
+
+	//test 2
+	src = "42 Porto";
+	size = 4;
+	result = ft_strlcpy(dest, src, size);
+	printf("Given src: '%s', Actual dest: '%s'\n", src, dest);
+
+	//test 3
+	src = "";
+	size = 8;
+	result = ft_strlcpy(dest, src, size);
+	printf("Given src: '%s', Actual dest: '%s'\n", src, dest);
+
+	//test 4
+	src = "42 Porto";
+	size = 0;
+	result = ft_strlcpy(dest, src, size);
+	printf("Given src: '%s', Actual dest: '%s'\n", src, dest);
+}
+
+int	main(void)
+{
+	test_ft_strlcpy();
+	return (0);
+}
+
+#--------------------------------------=---------------------------------------#
+#			         		      ft_strlcat               		    	       #
+#--------------------------------------=---------------------------------------#
+
+#include <stdio.h>
+#include <string.h>
+
+void	test_ft_strlcat(void)
+{
+	//test 1
+	char		dest1[20] = "42 ";
+	const char	*src1 = "Porto";
+	size_t		result1;
+	printf("Printed bytes: %zu\nSrc: %s\nResult: %s\n\n", result1 = ft_strlcat(dest1, src1, sizeof(dest1)), src1, dest1);
+
+	//test 2
+	char		dest2[20] = "";
+	const char	*src2 = "42 P";
+	size_t		result2;
+	printf("Printed bytes: %zu\nSrc: %s\nResult: %s\n", result2 = ft_strlcat(dest2, src2, sizeof(dest2)), src2, dest2);
+
+	//test 3
+	char		dest3[1] = "";
+	const char	*src3 = "42 P";
+	size_t		result3;
+	printf("Printed bytes: %zu\nSrc: %s\nResult: %s\n", result3 = ft_strlcat(dest3, src3, sizeof(dest3)), src3, dest3);
+
+	//test 4
+	char		dest4[1] = "";
+	const char	*src4 = "";
+	size_t		result4;
+	printf("Printed bytes: %zu\nSrc: %s\nResult: %s\n", result4 = ft_strlcat(dest4, src4, sizeof(dest4)), src4, dest4);
+
+}
+
+int	main(void)
+{
+	test_ft_strlcat();
+	return (0);
+}
+
+#--------------------------------------=---------------------------------------#
+#			         		      ft_toupper               		    	       #
+#--------------------------------------=---------------------------------------#
+
+#include <stdio.h>
+
+int	main(void)
+{
+	int	p = 98;
+
+	printf("The uppercase of %c is: %c\n", p, ft_toupper(p));
+	return (0);
+}
+
+#--------------------------------------=---------------------------------------#
+#			         		      ft_tolower               		    	       #
+#--------------------------------------=---------------------------------------#
+
+#include <stdio.h>
+
+int	main(void)
+{
+	int	p = 66;
+
+	printf("The lowercase of %c is: %c\n", p, ft_tolower(p));
+	return (0);
+}
+
+#--------------------------------------=---------------------------------------#
+#			         		      ft_strchr               		    	       #
+#--------------------------------------=---------------------------------------#
+
+#include <stdio.h>
+#include <string.h>
+
+void	test_ft_strchr(void)
+{
+	const char	*test_str1 = "abra";
+	char	c1 = 's';
+	printf("String: %s\nCharacter to be found: %c\nFound?%s\n", test_str1, c1, ft_strchr(test_str1, c1));
+}
+
+#--------------------------------------=---------------------------------------#
+#			         		      ft_strrchr               		    	       #
+#--------------------------------------=---------------------------------------#
+
+#include <stdio.h>
+#include <string.h>
+
+int	main(void)
+{
+	const char	*str = "abracadabro";
+
+	char *last = strrchr(str, 'a');
+	printf("Last occurrence of 'a' before end of string: %s\n", last);
+	return (0);
+}
+
+#--------------------------------------=---------------------------------------#
+#			         		      ft_strncmp               		    	       #
+#--------------------------------------=---------------------------------------#
+
+#include <stdio.h>
+#include <string.h>
+
+int main(void) 
+{
+    const char *str1 = "Hello, World!";
+    const char *str2 = "Hello, there!";
+    int result = strncmp(str1, str2, 5);
+
+    if (result == 0)
+        printf("The first 5 characters are equal.\n");
+    else if (result < 0)
+        printf("str1 is less than str2.\n");
+    else
+	{
+        printf("str1 is greater than str2.\n");
+	}
+	return (0);
+}
+
+#--------------------------------------=---------------------------------------#
+#			         		      ft_memchr               		    	       #
+#--------------------------------------=---------------------------------------#
+
+#include <stdio.h>
+#include <string.h>
+
+int main(void) 
+{
+    const char *str = "Hello, World!";
+    
+    char *result = memchr(str, 'o', 10);
+    
+    if (result) 
+	    printf("Found 'o': %s\n", result);
+    else
+    	printf("'o' not found in the first 10 characters.\n");
+
+    return 0;
+}
+
+#--------------------------------------=---------------------------------------#
+#			         		      ft_memcmp               		    	       #
+#--------------------------------------=---------------------------------------#
+
+
+#include <stdio.h>
+#include <string.h>
+
+int main(void) 
+{
+    const char *str1 = "Hello, World!";
+    const char *str2 = "Helol, there!";
+    
+    int result = memcmp(str1, str2, 5);
+
+    if (result == 0)
+        printf("The first 5 bytes are equal.\n");
+    else if (result < 0)
+        printf("str1 is less than str2.\n");
+    else
+	{
+        printf("str1 is greater than str2.\n");
+    }
+
+    return 0;
+}
+
+#--------------------------------------=---------------------------------------#
+#			         		      ft_strnstr               		    	       #
+#--------------------------------------=---------------------------------------#
+
+#include <stdio.h>
+#include <string.h>
+
+int main(void)
+{
+    const char *haystack = "Hello, World!";
+    const char *needle = "abra";
+    
+    char *result = ft_strnstr(haystack, needle, 13);
+
+    if (result)
+		printf("Found substring: %s\n", result);
+    else
+	{
+    	printf("Substring not found.\n");
+    }
+
+    return 0;
+}
+
+#--------------------------------------=---------------------------------------#
+#			         		      ft_atoi               		    	       #
+#--------------------------------------=---------------------------------------#
+
+int main(void)
+{
+	printf("%d\n%d\n", ft_atoi(" 	-12345+TRAA"), atoi(" 	-12345+TRAA"));
+	return (0);
+}

@@ -10,18 +10,18 @@
 • ft_memset	ok		ok		ok
 • ft_bzero	ok		ok		ok
 • ft_memcpy	ok		ok		ok
-• ft_memmove	ok					
-• ft_strlcpy	ok				
-• ft_strlcat	ok				
-• ft_toupper	ok		ok		
-• ft_tolower	ok		ok		
-• ft_strchr	ok				
-• ft_strrchr	ok				
-• ft_strncmp	ok		
-• ft_memchr	ok		
-• ft_memcmp	ok		
-• ft_strnstr	ok		
-• ft_atoi	ok		ok
+• ft_memmove	ok		ok		ok			
+• ft_strlcpy	ok		ok		ok		
+• ft_strlcat	ok		ok		ok		
+• ft_toupper	ok		ok		ok
+• ft_tolower	ok		ok		ok
+• ft_strchr	ok		ok		ok		
+• ft_strrchr	ok		ok		ok		
+• ft_strncmp	ok		ok		ok
+• ft_memchr	ok		ok		ok
+• ft_memcmp	ok		ok		ok
+• ft_strnstr	ok		ok		ok
+• ft_atoi	ok		ok		ok
 • ft_calloc	ok		
 • ft_strdup	ok		
 

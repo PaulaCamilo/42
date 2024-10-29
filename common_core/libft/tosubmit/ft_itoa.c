@@ -18,7 +18,6 @@ char	*ft_itoa(int n)
 {
 	char			*str;
 	long			len;
-	int				number;
 
 	if (n == INT_MIN)
 		return (ft_strdup("-2147483648"));
@@ -28,18 +27,16 @@ char	*ft_itoa(int n)
 		return (NULL);
 	if (n < 0)
 	{
-		str [0] = '-';
-		number = -n;
+		str[0] = '-';
+		n = -n;
 	}
-	else
-		number = n;
-	if (number == 0)
+	if (n == 0)
 		str[0] = '0';
 	str[len] = '\0';
-	while (number != '\0')
+	while (n != '\0')
 	{
-		str[len - 1] = (number % 10) + '0';
-		number = number / 10;
+		str[len - 1] = (n % 10) + '0';
+		n = n / 10;
 		len--;
 	}
 	return (str);

@@ -38,11 +38,3 @@ int	ft_atoi(const char *str)
 	result *= sign;
 	return (result);
 }
-
-/*
-
-int main(void)
-{
-	printf("%d\n%d\n", ft_atoi(" 	-12345+TRAA"), atoi(" 	-12345+TRAA"));
-}
-*/

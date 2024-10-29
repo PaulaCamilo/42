@@ -18,13 +18,3 @@ int	ft_toupper(int p)
 		return (p - 32);
 	return (p);
 }
-
-/*
-int	main(void)
-{
-	int	p = 98;
-
-	printf("The uppercase of %c is: %c\n", p, ft_toupper(p));
-	return (0);
-}
-*/
