@@ -12,7 +12,7 @@
 
 #include "libft.h"
 
-static long int	number_len(int n);
+static int	number_len(int n);
 
 char	*ft_itoa(int n)
 {
@@ -42,9 +42,9 @@ char	*ft_itoa(int n)
 	return (str);
 }
 
-static long int	number_len(int n)
+static int	number_len(int n)
 {
-	long int	len;
+	int	len;
 
 	len = 0;
 	if (n <= 0)

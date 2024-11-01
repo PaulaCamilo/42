@@ -1,31 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memmove.c                                       :+:      :+:    :+:   */
+/*   ft_memset.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ppaula-d <ppaula-d@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/17 14:26:39 by ppaula-d          #+#    #+#             */
-/*   Updated: 2024/10/17 14:26:45 by ppaula-d         ###   ########.fr       */
+/*   Created: 2024/10/17 14:25:54 by ppaula-d          #+#    #+#             */
+/*   Updated: 2024/10/17 14:26:01 by ppaula-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memmove(void *dest, const void *src, size_t n)
+void	*ft_memset(void *s, int c, size_t n)
 {
-	unsigned char	*s;
-	unsigned char	*d;
+	unsigned char		*str;
+	size_t				p;
 
-	if (!dest || !src)
-		return (NULL);
-	s = (unsigned char *)src;
-	d = (unsigned char *)dest;
-	if (s < d)
-		while (n--)
-			d[n] = s[n];
-	else
-		while (n--)
-			*d++ = *s++;
-	return (dest);
+	str = (unsigned char *)s;
+	p = 0;
+	while (p < n)
+	{
+		str[p] = (unsigned char)c;
+		p++;
+	}
+	return (str);
 }

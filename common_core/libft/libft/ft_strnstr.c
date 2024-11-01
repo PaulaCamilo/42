@@ -1,34 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
+/*   ft_strnstr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ppaula-d <ppaula-d@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/17 14:26:55 by ppaula-d          #+#    #+#             */
-/*   Updated: 2024/10/17 14:27:03 by ppaula-d         ###   ########.fr       */
+/*   Created: 2024/10/17 14:29:30 by ppaula-d          #+#    #+#             */
+/*   Updated: 2024/10/17 14:29:37 by ppaula-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	ft_strlcpy(char *dest, const char *src, size_t size)
+char	*ft_strnstr(const char *big, const char *little, size_t n)
 {
 	size_t	p;
+	size_t	c;
 
-	if (!dest || !src)
-		return (0);
-	if (!size)
-		return (ft_strlen(src));
-	if (size > 0)
+	p = 0;
+	c = 0;
+	if (little[0] == '\0')
+		return ((char *) big);
+	while (big[p] && p < n)
 	{
-		p = 0;
-		while (p < (size - 1) && src[p] != '\0')
+		while (big[p + c] == little[c] && big[p + c] && p + c < n)
 		{
-			dest[p] = src[p];
-			p++;
+			c++;
+			if (little[c] == '\0')
+				return ((char *) big + p);
 		}
-		dest[p] = '\0';
+		p++;
+		c = 0;
 	}
-	return (ft_strlen(src));
+	return (0);
 }

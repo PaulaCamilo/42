@@ -1,36 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strnstr.c                                       :+:      :+:    :+:   */
+/*   ft_memcpy.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ppaula-d <ppaula-d@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/17 14:29:30 by ppaula-d          #+#    #+#             */
-/*   Updated: 2024/10/17 14:29:37 by ppaula-d         ###   ########.fr       */
+/*   Created: 2024/10/17 14:26:25 by ppaula-d          #+#    #+#             */
+/*   Updated: 2024/10/17 14:26:32 by ppaula-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strnstr(const char *big, const char *little, size_t n)
+void	*ft_memcpy(void *dest, const void *src, size_t n)
 {
-	size_t	p;
-	size_t	c;
+	char			*d;
+	size_t			p;
+	const char		*s;
 
+	if (dest == NULL && src == NULL)
+		return (NULL);
+	d = (char *)dest;
+	s = (const char *)src;
 	p = 0;
-	c = 0;
-	if (little[0] == 0)
-		return ((char *) big);
-	while (big[p] && p < n)
+	while (p < n)
 	{
-		while (big[p + c] == little[c] && big[p + c] && p + c < n)
-		{
-			c++;
-			if (little[c] == 0)
-				return ((char *) big + p);
-		}
+		d[p] = s[p];
 		p++;
-		c = 0;
 	}
-	return (0);
+	return (dest);
 }

@@ -290,25 +290,25 @@ void	test_ft_strlcat(void)
 	char		dest1[20] = "42 ";
 	const char	*src1 = "Porto";
 	size_t		result1;
-	printf("Printed bytes: %zu\nSrc: %s\nResult: %s\n\n", result1 = ft_strlcat(dest1, src1, sizeof(dest1)), src1, dest1);
+	printf("Total length: %zu\nSrc: %s\nPrinted: %s\n\n", result1 = ft_strlcat(dest1, src1, sizeof(dest1)), src1, dest1);
 
 	//test 2
 	char		dest2[20] = "";
 	const char	*src2 = "42 P";
 	size_t		result2;
-	printf("Printed bytes: %zu\nSrc: %s\nResult: %s\n", result2 = ft_strlcat(dest2, src2, sizeof(dest2)), src2, dest2);
+	printf("Total length: %zu\nSrc: %s\nPrinted: %s\n\n", result2 = ft_strlcat(dest2, src2, sizeof(dest2)), src2, dest2);
 
 	//test 3
-	char		dest3[1] = "";
+	char		dest3[2] = "";
 	const char	*src3 = "42 P";
 	size_t		result3;
-	printf("Printed bytes: %zu\nSrc: %s\nResult: %s\n", result3 = ft_strlcat(dest3, src3, sizeof(dest3)), src3, dest3);
+	printf("Total length: %zu\nSrc: %s\nPrinted: %s\n\n", result3 = ft_strlcat(dest3, src3, sizeof(dest3)), src3, dest3);
 
 	//test 4
 	char		dest4[1] = "";
 	const char	*src4 = "";
 	size_t		result4;
-	printf("Printed bytes: %zu\nSrc: %s\nResult: %s\n", result4 = ft_strlcat(dest4, src4, sizeof(dest4)), src4, dest4);
+	printf("Total length: %zu\nSrc: %s\nPrinted: %s\n\n", result4 = ft_strlcat(dest4, src4, sizeof(dest4)), src4, dest4);
 
 }
 
@@ -480,4 +480,177 @@ int main(void)
 {
 	printf("%d\n%d\n", ft_atoi(" 	-12345+TRAA"), atoi(" 	-12345+TRAA"));
 	return (0);
+}
+
+#--------------------------------------=---------------------------------------#
+#			         		      ft_calloc               		    	       #
+#--------------------------------------=---------------------------------------#
+
+#include <stdio.h>
+#include <stdlib.h>
+
+int main(void) 
+{
+    int n = 5;
+    int *arr = (int *)calloc(n, sizeof(int));
+    
+    if (arr == NULL) 
+	{
+        printf("Memory allocation failed\n");
+        return (1);
+    }
+    printf("%d %d %d %d %d\n", arr[0], arr[1], arr[2], arr[3], arr[4]);
+    free(arr);
+    return (0);
+}
+
+#--------------------------------------=---------------------------------------#
+#			         		      ft_strdup               		    	       #
+#--------------------------------------=---------------------------------------#
+
+
+#include <stdio.h>
+#include <string.h>
+#include <stdlib.h>
+
+int main(void) 
+{
+    const char original[] = "Hello, World!";
+    
+    char *duplicate = strdup(original);
+    if (duplicate == NULL) {
+        printf("Memory allocation failed\n");
+        return 1;
+    }
+    printf("Original: %s\n", original);
+    printf("Duplicate: %s\n", duplicate);
+    duplicate[0] = 'h';
+    printf("Modified Duplicate: %s\n", duplicate);
+    printf("Original remains unchanged: %s\n", original);
+    free(duplicate);
+
+    return (0);
+}
+
+#--------------------------------------=---------------------------------------#
+#			         		      ft_substr               		    	       #
+#--------------------------------------=---------------------------------------#
+
+#include <stdio.h>
+
+int main(void) 
+{
+    char *s = "Hello, World!";
+    char *sub = ft_substr(s, 7, 5);
+    
+    printf("Substring: %s\n", sub);
+    free(sub);
+    return (0);
+}
+
+#--------------------------------------=---------------------------------------#
+#			         		      ft_strjoin               		    	       #
+#--------------------------------------=---------------------------------------#
+
+
+#include <stdio.h>
+#include <string.h>
+
+int main(void) 
+{
+    char *s1 = "Hello, ";
+    char *s2 = "World!";
+    char *result = ft_strjoin(s1, s2);
+
+    if (result) 
+	{
+        printf("Joined String: %s\n", result);
+        free(result);
+    } 
+	else 
+	{
+        printf("Memory allocation failed.\n");
+    }
+    return (0);
+}
+
+#--------------------------------------=---------------------------------------#
+#			         		      ft_strtrim               		    	       #
+#--------------------------------------=---------------------------------------#
+
+#include <stdio.h>
+#include <stdlib.h>
+
+int main(void) 
+{
+    char *s1 = "   Hello, World!   ";
+    char *set = " ";
+    char *trimmed = ft_strtrim(s1, set);
+
+    if (trimmed) 
+	{
+        printf("Trimmed String: '%s'\n", trimmed);
+        free(trimmed);
+    } 
+	else 
+	{
+        printf("Memory allocation failed.\n");
+    }
+
+    return (0);
+}
+
+#--------------------------------------=---------------------------------------#
+#			         	           ft_split               		    	       #
+#--------------------------------------=---------------------------------------#
+
+#include <stdio.h>
+
+int main(void) 
+{
+    char *s = "This is a test string.";
+    char **tokens = ft_split(s, ' ');
+    if (tokens) 
+	{
+        int i = 0;
+        while (tokens[i] != NULL) 
+		{
+            printf("Token %d: %s\n", i, tokens[i]);
+            free(tokens[i]);
+            ++i;
+		}
+        free(tokens);
+    } 
+	else 
+	{
+        printf("Memory allocation failed.\n");
+    }
+
+    return (0);
+}
+
+#--------------------------------------=---------------------------------------#
+#			         	            ft_itoa               		    	       #
+#--------------------------------------=---------------------------------------#
+
+#include <stdio.h>
+#include <limits.h>
+#include <stdlib.h>
+
+int main(void) 
+{
+    int num = -12345;
+    char *result = ft_itoa(num);
+
+    if (result) 
+	{
+        printf("The string representation of %d is %s\n", num, result);
+        free(result);
+    } 
+	else 
+	{
+        printf("Memory allocation failed!\n");
+    }
+
+    return (0);
 }
