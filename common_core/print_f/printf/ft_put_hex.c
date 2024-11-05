@@ -12,24 +12,24 @@
 
 #include "libftprintf.h"
 
-int	ft_put_hex(unsigned long number, const char form)
+int	ft_put_hex(unsigned long number, const char format)
 {
+	char	*base_l;
 	char	*base_u;
-	char	*base;
 	int		result;
 
 	result = 0;
-	base = "0123456789abcdef";
+	base_l = "0123456789abcdef";
 	base_u = "0123456789ABCDEF";
 	if (number >= 16)
 	{
-		result += ft_put_hex(number / 16, form);
-		result += ft_put_hex(number % 16, form);
+		result += ft_put_hex(number / 16, format);
+		result += ft_put_hex(number % 16, format);
 	}
 	else
 	{
-		if (form == 'x')
-			ft_putchar_fd(base[number], 1);
+		if (format == 'x')
+			ft_putchar_fd(base_l[number], 1);
 		else
 			ft_putchar_fd(base_u[number], 1);
 		result++;

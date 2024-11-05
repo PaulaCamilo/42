@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstr_fd.c                                     :+:      :+:    :+:   */
+/*   ft_printf_aux.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ppaula-d <ppaula-d@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/04 12:56:13 by ppaula-d          #+#    #+#             */
-/*   Updated: 2024/11/04 15:27:38 by ppaula-d         ###   ########.fr       */
+/*   Created: 2024/11/05 14:40:36 by ppaula-d          #+#    #+#             */
+/*   Updated: 2024/11/05 15:00:06 by ppaula-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libftprintf.h"
 
-void	ft_putstr_fd(char *str, int fd)
+void	ft_printstr_fd(char *str, int fd)
 {
-	write (fd, str, ft_strlen(str));
+	write (fd, *str, ft_strlen(str));
 }

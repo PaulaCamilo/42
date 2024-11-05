@@ -1,31 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printptr.c                                      :+:      :+:    :+:   */
+/*   ft_printnb.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ppaula-d <ppaula-d@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/04 15:30:38 by ppaula-d          #+#    #+#             */
-/*   Updated: 2024/11/05 14:59:56 by ppaula-d         ###   ########.fr       */
+/*   Created: 2024/11/05 14:03:13 by ppaula-d          #+#    #+#             */
+/*   Updated: 2024/11/05 15:00:00 by ppaula-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libftprintf.h"
 
-int	ft_printptr(unsigned long ptr)
+int	ft_printnb(int number)
 {
-	int	length;
+	int		length;
+	char	*str;
 
-	length = 0;
-	if (!ptr)
-	{
-		ft_putstr_fd("(nil)", 1);
-		return (5);
-	}
-	else
-	{
-		length += ft_printstr("0x");
-		length += ft_put_hex(ptr, 'x');
-	}
+	str = ft_itoa(number);
+	length = ft_printstring(str);
+	free(str);
 	return (length);
 }

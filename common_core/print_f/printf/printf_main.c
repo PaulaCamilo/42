@@ -6,11 +6,13 @@
 /*   By: ppaula-d <ppaula-d@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/04 13:30:15 by ppaula-d          #+#    #+#             */
-/*   Updated: 2024/11/04 14:30:24 by ppaula-d         ###   ########.fr       */
+/*   Updated: 2024/11/05 13:45:01 by ppaula-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libftprintf.h"
+#include <stdio.h>
+#include <string.h>
 
 //TO PRINT STR & NB OF CHARS IN ft_printstr
 
@@ -38,3 +40,7 @@ int	main(void)
 	ft_printc('\n');
 	return (0);
 }
+
+//TO PRINT A NULL POINTER WITH %p
+
+//TO PRINT A HEXADECIMAL WITH %x OR %X

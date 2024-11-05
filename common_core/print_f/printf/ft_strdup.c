@@ -1,31 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printptr.c                                      :+:      :+:    :+:   */
+/*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ppaula-d <ppaula-d@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/04 15:30:38 by ppaula-d          #+#    #+#             */
-/*   Updated: 2024/11/05 14:59:56 by ppaula-d         ###   ########.fr       */
+/*   Created: 2024/10/17 14:30:13 by ppaula-d          #+#    #+#             */
+/*   Updated: 2024/11/05 14:59:14 by ppaula-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libftprintf.h"
 
-int	ft_printptr(unsigned long ptr)
+char	*ft_strdup(const char *s)
 {
-	int	length;
+	char	*new;
+	int		size;
+	int		p;
 
-	length = 0;
-	if (!ptr)
+	size = ft_strlen(s);
+	new = (char *)malloc(sizeof(char) * (size + 1));
+	if (new == NULL)
+		return (NULL);
+	p = 0;
+	while (p < size)
 	{
-		ft_putstr_fd("(nil)", 1);
-		return (5);
+		new[p] = s[p];
+		p++;
 	}
-	else
-	{
-		length += ft_printstr("0x");
-		length += ft_put_hex(ptr, 'x');
-	}
-	return (length);
+	new[p] = '\0';
+	return (new);
 }
