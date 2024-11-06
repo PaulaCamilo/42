@@ -6,7 +6,7 @@
 #    By: ppaula-d <ppaula-d@student.42porto.com>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/10/16 12:39:09 by ppaula-d          #+#    #+#              #
-#    Updated: 2024/11/04 15:26:18 by ppaula-d         ###   ########.fr        #
+#    Updated: 2024/11/06 16:58:19 by ppaula-d         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,12 +18,9 @@ NAME    = libftprintf.a
 CC      = cc
 CFLAGS  = -Wall -Wextra -Werror
 SRC_DIR = printf
-SRCS    = ft_printc.c \
-		ft_printf.c \
-		ft_printstr.c \
-		ft_putchar_fd.c	\
-		ft_putstr_fd.c \
-		ft_strlen.c
+SRCS    = ft_check_format.c	ft_print_char.c	ft_print_dec_int.c \
+		ft_print_string.c ft_print_un_dec.c ft_printf_aux.c \
+		ft_printf.c
 OBJS    = $(SRCS:.c=.o)
 AR      = ar rcs
 RM      = rm -f
