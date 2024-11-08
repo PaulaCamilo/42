@@ -6,7 +6,7 @@
 /*   By: ppaula-d <ppaula-d@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/04 13:42:41 by ppaula-d          #+#    #+#             */
-/*   Updated: 2024/11/06 16:48:12 by ppaula-d         ###   ########.fr       */
+/*   Updated: 2024/11/08 15:36:18 by ppaula-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,11 +23,16 @@ int		ft_printf(const char *str, ...);
 
 //main functions
 int		ft_print_char(int c);
-int		ft_print_string(char *str);
 int		ft_print_dec_int(int number);
+int		ft_print_hexa(unsigned int number, int type);
+int		ft_print_pointer(void *ptr);
+int		ft_print_string(char *str);
 int		ft_print_un_dec(unsigned int number);
 
-//helper functions
-int		ft_strlen(char *str);
+//utils functions
+int		ft_base16(unsigned long number, char *base);
+int		ft_char_fd(char c, int fd);
 int		ft_string_fd(char *str, int fd);
+int		ft_strlen(char *str);
+
 #endif

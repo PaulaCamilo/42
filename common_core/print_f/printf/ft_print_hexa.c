@@ -1,28 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf_aux.c                                    :+:      :+:    :+:   */
+/*   ft_print_hexa.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ppaula-d <ppaula-d@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/06 10:12:50 by ppaula-d          #+#    #+#             */
-/*   Updated: 2024/11/06 15:16:45 by ppaula-d         ###   ########.fr       */
+/*   Created: 2024/11/08 12:29:43 by ppaula-d          #+#    #+#             */
+/*   Updated: 2024/11/08 15:39:36 by ppaula-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libftprintf.h"
 
-int	ft_strlen(char *str)
+int	ft_print_hexa(unsigned int number, int type)
 {
-	int	p;
+	char	*base;
 
-	p = 0;
-	while (str[p])
-		p++;
-	return (p);
-}
-
-int	ft_string_fd(char *str, int fd)
-{
-	return (write (fd, str, ft_strlen(str)));
+	if (type == 'x')
+		base = "0123456789abcdef";
+	else if (type == 'X')
+		base = "0123456789ABCDEF";
+	else
+		return (-1);
+	return (ft_base16(number, base));
 }

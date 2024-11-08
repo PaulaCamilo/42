@@ -1,35 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_string.c                                  :+:      :+:    :+:   */
+/*   ft_print_pointer.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ppaula-d <ppaula-d@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/06 10:06:11 by ppaula-d          #+#    #+#             */
-/*   Updated: 2024/11/08 15:43:57 by ppaula-d         ###   ########.fr       */
+/*   Created: 2024/11/08 15:31:00 by ppaula-d          #+#    #+#             */
+/*   Updated: 2024/11/08 15:43:38 by ppaula-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libftprintf.h"
 
-int	ft_print_string(char *str)
+int	ft_print_pointer(void *ptr)
 {
-	int	count;
+	int		count;
+	char	*base_l;
+	unsigned long	ptr_a;
 
-	count = 0;
-	if (!str)
+	if (!ptr)
 	{
-		count = ft_string_fd("(null)", 1);
+		count = ft_string_fd("(nil)", 1);
 		if (count < 0)
 			return (-1);
-		return (6);
+		return (5);
 	}
-	while (str[count])
-	{
-		ft_print_char(str[count]);
-		count++;
-	}
-	if (count < 0)
-		return (-1);
+	ptr_a = (unsigned long) ptr;
+	base_l = "0123456789abcdef";
+	count = 0;
+	count += ft_print_string("0x");
+	count += ft_base16(ptr_a, base_l);
+	
 	return (count);
 }

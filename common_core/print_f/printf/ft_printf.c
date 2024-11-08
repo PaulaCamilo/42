@@ -6,7 +6,7 @@
 /*   By: ppaula-d <ppaula-d@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/06 09:29:52 by ppaula-d          #+#    #+#             */
-/*   Updated: 2024/11/06 14:24:33 by ppaula-d         ###   ########.fr       */
+/*   Updated: 2024/11/08 13:06:45 by ppaula-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ int	ft_printf(const char *str, ...)
 			count += ft_print_char(str[i]);
 		i++;
 	}
-	va_end	(args);
+	va_end (args);
 	if (count < 0)
 		return (-1);
 	return (count);

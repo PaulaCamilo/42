@@ -1,35 +1,50 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_string.c                                  :+:      :+:    :+:   */
+/*   ft_printf_utils.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ppaula-d <ppaula-d@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/06 10:06:11 by ppaula-d          #+#    #+#             */
-/*   Updated: 2024/11/08 15:43:57 by ppaula-d         ###   ########.fr       */
+/*   Created: 2024/11/06 10:12:50 by ppaula-d          #+#    #+#             */
+/*   Updated: 2024/11/08 15:26:18 by ppaula-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libftprintf.h"
 
-int	ft_print_string(char *str)
+int	ft_char_fd(char c, int fd)
+{
+	return (write (fd, &c, 1));
+}
+
+int	ft_base16(unsigned long number, char *base)
 {
 	int	count;
 
 	count = 0;
-	if (!str)
+	if (number > 15)
 	{
-		count = ft_string_fd("(null)", 1);
-		if (count < 0)
-			return (-1);
-		return (6);
+		count += ft_base16((number / 16), base);
+		count += ft_base16((number % 16), base);
 	}
-	while (str[count])
-	{
-		ft_print_char(str[count]);
-		count++;
-	}
+	else
+		count += ft_print_char(base[number]);
 	if (count < 0)
 		return (-1);
 	return (count);
+}
+
+int	ft_string_fd(char *str, int fd)
+{
+	return (write (fd, str, ft_strlen(str)));
+}
+
+int	ft_strlen(char *str)
+{
+	int	p;
+
+	p = 0;
+	while (str[p])
+		p++;
+	return (p);
 }
