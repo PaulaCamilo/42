@@ -6,7 +6,7 @@
 /*   By: ppaula-d <ppaula-d@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/04 13:42:41 by ppaula-d          #+#    #+#             */
-/*   Updated: 2024/11/08 15:36:18 by ppaula-d         ###   ########.fr       */
+/*   Updated: 2024/11/12 09:23:51 by ppaula-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
 
 //printf
 int		ft_check_format(const char type, va_list args);
-int		ft_printf(const char *str, ...);
+int		ft_printf(const char *var, ...);
 
 //main functions
 int		ft_print_char(int c);

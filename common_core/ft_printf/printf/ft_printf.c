@@ -1,50 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf_utils.c                                  :+:      :+:    :+:   */
+/*   ft_printf.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ppaula-d <ppaula-d@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/06 10:12:50 by ppaula-d          #+#    #+#             */
-/*   Updated: 2024/11/08 15:26:18 by ppaula-d         ###   ########.fr       */
+/*   Created: 2024/11/06 09:29:52 by ppaula-d          #+#    #+#             */
+/*   Updated: 2024/11/12 09:23:41 by ppaula-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libftprintf.h"
 
-int	ft_char_fd(char c, int fd)
+int	ft_printf(const char *var, ...)
 {
-	return (write (fd, &c, 1));
-}
+	int			i;
+	int			count;
+	va_list		args;
 
-int	ft_base16(unsigned long number, char *base)
-{
-	int	count;
-
+	va_start(args, var);
+	i = 0;
 	count = 0;
-	if (number > 15)
+	while (var[i])
 	{
-		count += ft_base16((number / 16), base);
-		count += ft_base16((number % 16), base);
+		if (var[i] == '%')
+		{
+			i++;
+			count += ft_check_format(var[i], args);
+		}
+		else
+			count += ft_print_char(var[i]);
+		i++;
 	}
-	else
-		count += ft_print_char(base[number]);
+	va_end (args);
 	if (count < 0)
 		return (-1);
 	return (count);
-}
-
-int	ft_string_fd(char *str, int fd)
-{
-	return (write (fd, str, ft_strlen(str)));
-}
-
-int	ft_strlen(char *str)
-{
-	int	p;
-
-	p = 0;
-	while (str[p])
-		p++;
-	return (p);
 }

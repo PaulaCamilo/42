@@ -1,39 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.c                                        :+:      :+:    :+:   */
+/*   ft_print_pointer.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ppaula-d <ppaula-d@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/06 09:29:52 by ppaula-d          #+#    #+#             */
-/*   Updated: 2024/11/08 13:06:45 by ppaula-d         ###   ########.fr       */
+/*   Created: 2024/11/08 15:31:00 by ppaula-d          #+#    #+#             */
+/*   Updated: 2024/11/12 09:08:59 by ppaula-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libftprintf.h"
 
-int	ft_printf(const char *str, ...)
+int	ft_print_pointer(void *ptr)
 {
-	int			i;
-	int			count;
-	va_list		args;
+	int				count;
+	char			*base_l;
+	unsigned long	ptr_a;
 
-	va_start(args, str);
-	i = 0;
-	count = 0;
-	while (str[i])
+	if (!ptr)
 	{
-		if (str[i] == '%')
-		{
-			i++;
-			count += ft_check_format(str[i], args);
-		}
-		else
-			count += ft_print_char(str[i]);
-		i++;
+		count = ft_string_fd("(nil)", 1);
+		if (count < 0)
+			return (-1);
+		return (5);
 	}
-	va_end (args);
-	if (count < 0)
-		return (-1);
+	ptr_a = (unsigned long) ptr;
+	base_l = "0123456789abcdef";
+	count = 0;
+	count += ft_print_string("0x");
+	count += ft_base16(ptr_a, base_l);
 	return (count);
 }
