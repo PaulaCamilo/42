@@ -1,31 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   first_word.c                                       :+:      :+:    :+:   */
+/*   do_op.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ppaula-d <ppaula-d@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/04 14:33:10 by ppaula-d          #+#    #+#             */
-/*   Updated: 2024/12/04 14:34:38 by ppaula-d         ###   ########.fr       */
+/*   Created: 2024/12/05 11:08:09 by ppaula-d          #+#    #+#             */
+/*   Updated: 2024/12/05 11:21:17 by ppaula-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
+#include <stdio.h>
+#include <stdlib.h>
 
 int	main(int ac, char **av)
 {
-	int	i = 0;
-
-	if (ac == 2)
+	if (ac == 4)
 	{
-		while (av[1][i] == 32 || av[1][i] == 9)
-			i++;
-		while (av[1][i] && av[1][i] != 32 && av[1][i] != 9)
-		{
-			write (1, &av[1][i], 1);
-			i++;
-		}
+		if (av[2][0] == '+')
+			printf("%d", (atoi(av[1]) + atoi(av[3])));
+		if (av[2][0] == '-')
+			printf("%d", (atoi(av[1]) - atoi(av[3])));
+		if (av[2][0] == '*')
+			printf("%d", (atoi(av[1]) * atoi(av[3])));
+		if (av[2][0] == '/')
+			printf("%d", (atoi(av[1]) / atoi(av[3])));
+		if (av[2][0] == '%')
+			printf("%d", (atoi(av[1]) % atoi(av[3]))):
 	}
-	write (1, "\n", 1);
+	printf("\n");
 	return (0);
 }

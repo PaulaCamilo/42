@@ -1,34 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   rotone.c                                           :+:      :+:    :+:   */
+/*   ft_strpbrk.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ppaula-d <ppaula-d@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/04 15:31:19 by ppaula-d          #+#    #+#             */
-/*   Updated: 2024/12/04 15:34:30 by ppaula-d         ###   ########.fr       */
+/*   Created: 2024/12/05 13:09:41 by ppaula-d          #+#    #+#             */
+/*   Updated: 2024/12/05 13:18:23 by ppaula-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
+#include <string.h>
 
-int	main(int ac, char **av)
+char	*ft_strpbrk(const char *s1, const char *s2)
 {
 	int	i = 0;
 
-	if (ac == 2)
+	if (!s1 || !s2)
+		return (0);
+	while (*s1)
 	{
-		while (av[1][i])
+		i = 0;
+		while (s2[i])
 		{
-			if (av[1][i] == 'z' || av[1][i] == 'Z')
-					av[1][i] -= 32;
-			if (av[1][i] >= 'a' && av[1][i] <= 'z' ||
-					av[1][i] >= 'A' && av[1][i] <= 'Z')
-					av[1][i] += 1;
-			write (1, &av[1][i], 1);
+			if (*s1 == s2[i])
+				return (char *) s1;
 			i++;
 		}
+		s1++;
 	}
-	write (1, "\n", 1);
-	return (0);
+	return (NULL);
 }

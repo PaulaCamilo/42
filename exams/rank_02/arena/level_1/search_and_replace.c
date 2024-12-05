@@ -1,20 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   search_and_replace.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ppaula-d <ppaula-d@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/03 12:23:17 by ppaula-d          #+#    #+#             */
-/*   Updated: 2024/12/03 12:39:33 by ppaula-d         ###   ########.fr       */
+/*   Created: 2024/12/05 09:48:02 by ppaula-d          #+#    #+#             */
+/*   Updated: 2024/12/05 09:58:04 by ppaula-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_strlen(char *str)
+#include <unistd.h>
+
+int	main(int ac, char **av)
 {
-	int	i;
-	
-	while (str[i] != '\0')
-		i++;
-	return (i);
+	int	i = 0;
+	if (ac == 4 && !av[2][1] && !av[3][1])
+	{
+		while (av[1][i])
+		{
+			if (av[1][i] == av[2][0])
+				av[1][i] = av[3][0];
+			write (1, &av[1][i], 1);
+			i++;
+		}
+	}
+	write (1, "\n", 1);
+	return (0);
 }

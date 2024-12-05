@@ -1,35 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   rot_13.c                                           :+:      :+:    :+:   */
+/*   rev_print.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ppaula-d <ppaula-d@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/04 15:26:40 by ppaula-d          #+#    #+#             */
-/*   Updated: 2024/12/04 15:29:58 by ppaula-d         ###   ########.fr       */
+/*   Created: 2024/12/05 08:56:13 by ppaula-d          #+#    #+#             */
+/*   Updated: 2024/12/05 08:59:30 by ppaula-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 
-int	main(int ac, char **av)
+char *rev_print(char *str)
 {
-	int	i = 0;
-
-	if (ac == 2)
-	{
-		while (av[1][i])
-		{
-			if (av[1][i] >= 'a' && av[1][i] <= 'm' ||
-					av[1][i] >= 'A' && av[1][i] <= 'M')
-					av[1][i] += 13;
-			else if (av[1][i] >= 'n' && av[1][i] <= 'z' ||
-					av[1][i] >= 'N' && av[1][i] <= 'Z')
-					av[1][i] -= 13;
-			write (1, &av[1][i], 1);
-			i++;
-		}
-	}
+	int i = 0;
+	
+	while (str[i])
+		i++;
+	while (--i >= 0)
+		write (1, &str[i], 1);
 	write (1, "\n", 1);
-	return (0);
+	return (str);
 }

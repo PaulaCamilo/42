@@ -1,34 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   rev_print.c                                        :+:      :+:    :+:   */
+/*   camel_to_snake.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ppaula-d <ppaula-d@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/04 15:21:55 by ppaula-d          #+#    #+#             */
-/*   Updated: 2024/12/04 15:26:17 by ppaula-d         ###   ########.fr       */
+/*   Created: 2024/12/05 10:50:38 by ppaula-d          #+#    #+#             */
+/*   Updated: 2024/12/05 10:56:43 by ppaula-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 
-char *rev_print(char *str)
+int	main(int ac, char **av)
 {
 	int	i = 0;
-	
-	while (str[i])
+	while (av[1][i])
+	{
+		if (av[1][i] >= 'A' && av[1][i] <= 'Z' && i > 0)
+		{
+			write (1, "_", 1);
+			av[1][i] += 32;
+		}
+		write (1, &av[1][i], 1);
 		i++;
-	while (--i >= 0)
-			write (1, &str[i], 1);
-	return (str);
-}
-
-int main(void)
-{
-  rev_print("Hello world");
-  write (1, "\n", 1);
-  rev_print("tnirp esreveR");
-  write (1, "\n", 1);
-  rev_print("");
-  write (1, "\n", 1);
+	}
+	write (1, "\n", 1);
+	return (0);
 }
