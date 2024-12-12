@@ -6,7 +6,7 @@
 /*   By: ppaula-d <ppaula-d@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/25 12:56:00 by ppaula-d          #+#    #+#             */
-/*   Updated: 2024/11/27 11:02:52 by ppaula-d         ###   ########.fr       */
+/*   Updated: 2024/12/12 11:33:54 by ppaula-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,8 @@ int	main(void)
 	}
 	return (0);
 }
+
+// valgrind --leak-check=yes ./a.out
 
 // cc -Wall -Wextra -Werror get_next_line/* -D BUFFER_SIZE=10 -o get_next_line
 
