@@ -1,33 +1,43 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strpbrk.c                                       :+:      :+:    :+:   */
+/*   ft_strrev.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ppaula-d <ppaula-d@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/05 13:09:41 by ppaula-d          #+#    #+#             */
-/*   Updated: 2024/12/05 13:18:23 by ppaula-d         ###   ########.fr       */
+/*   Created: 2024/12/12 14:13:30 by ppaula-d          #+#    #+#             */
+/*   Updated: 2024/12/12 14:46:50 by ppaula-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <string.h>
-
-char	*ft_strpbrk(const char *s1, const char *s2)
+char    *ft_strrev(char *str)
 {
-	int	i = 0;
+	int i = 0;
+	int len = 0;
+	char temp;
 
-	if (!s1 || !s2)
-		return (0);
-	while (*s1)
+	while (str[len])
+		len++;
+	while (i < len - 1)
 	{
-		i = 0;
-		while (s2[i])
-		{
-			if (*s1 == s2[i])
-				return (char *) s1;
-			i++;
-		}
-		s1++;
+		temp = str[i];
+		str[i] = str[len - 1];
+		str[len - 1] = temp;
+		len--;
+		i++;
 	}
-	return (NULL);
+	return (str);
+}
+
+#include <stdio.h>
+
+int main(void)
+{
+	char str[100] = "Zedro 42";
+	char *rev = NULL;
+
+	rev = ft_strrev(str);
+	printf("%s\n", rev);
+
+	return (0);
 }

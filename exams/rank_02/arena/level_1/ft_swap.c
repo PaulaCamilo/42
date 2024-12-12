@@ -5,16 +5,16 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: ppaula-d <ppaula-d@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/05 08:16:50 by ppaula-d          #+#    #+#             */
-/*   Updated: 2024/12/05 08:17:24 by ppaula-d         ###   ########.fr       */
+/*   Created: 2024/12/12 09:05:16 by ppaula-d          #+#    #+#             */
+/*   Updated: 2024/12/12 09:05:41 by ppaula-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 void	ft_swap(int *a, int *b)
 {
-	int	tmp;
-	
-	tmp = *a;
+	int	temp;
+
+	temp = *a;
 	*a = *b;
-	*b = tmp;
+	*b = temp;
 }

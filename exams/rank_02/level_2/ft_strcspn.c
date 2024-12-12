@@ -1,31 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   inter.c                                            :+:      :+:    :+:   */
+/*   ft_strcspn.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ppaula-d <ppaula-d@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/05 13:56:10 by ppaula-d          #+#    #+#             */
-/*   Updated: 2024/12/05 14:00:32 by ppaula-d         ###   ########.fr       */
+/*   Created: 2024/12/12 13:48:48 by ppaula-d          #+#    #+#             */
+/*   Updated: 2024/12/12 14:50:57 by ppaula-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
+#include <string.h>
 
-int	main(int ac, char **av)
+size_t	ft_strcspn(const char *s, const char *reject)
 {
-	int	i = 0;
-	int	j = 0;
-	
-	if (ac == 3)
+	size_t i = 0;
+	size_t j = 0;
+
+	while (s[i] != '\0')
 	{
-		while (av[1][i] || av[2][j])
+		while (reject[j] != '\0')
 		{
-			
-			i++;
+			if (reject[j] == s[i])
+				return (i);
 			j++;
 		}
+		j = 0;
+		i++;
 	}
-	write (1, "\n", 1);
-	return (0);
+	return (i);
 }

@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: ppaula-d <ppaula-d@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/05 08:05:10 by ppaula-d          #+#    #+#             */
-/*   Updated: 2024/12/05 08:11:43 by ppaula-d         ###   ########.fr       */
+/*   Created: 2024/12/12 08:47:44 by ppaula-d          #+#    #+#             */
+/*   Updated: 2024/12/12 08:52:20 by ppaula-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,15 +14,15 @@
 
 void print_n(int n)
 {
-	char	str[10] = "0123456789";
+	char str[10] = "0123456789";
 	if (n > 9)
 		print_n(n / 10);
 	write (1, &str[n % 10], 1);
 }
 
-void	fizzbuzz(void)
+int main(int ac, char **av)
 {
-	int	i = 1;
+	int i = 1;
 	while (i <= 100)
 	{
 		if (i % 5 == 0 && i % 3 == 0)
@@ -36,10 +36,5 @@ void	fizzbuzz(void)
 		write (1, "\n", 1);
 		i++;
 	}
-}
-
-int	main(void)
-{
-	fizzbuzz();
 	return (0);
 }

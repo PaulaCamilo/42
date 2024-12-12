@@ -5,20 +5,19 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: ppaula-d <ppaula-d@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/05 08:13:40 by ppaula-d          #+#    #+#             */
-/*   Updated: 2024/12/05 08:14:52 by ppaula-d         ###   ########.fr       */
+/*   Created: 2024/12/12 08:56:52 by ppaula-d          #+#    #+#             */
+/*   Updated: 2024/12/12 09:04:08 by ppaula-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 char    *ft_strcpy(char *s1, char *s2)
 {
-	int	i = 0;
-	
-	while (s2[i])
+	int i = 0;
+	while (s2[i] != '\0')
 	{
 		s1[i] = s2[i];
-		i++;		
+		i++;
 	}
-	s1[i] = "\0";
+	s1[i] = '\0';
 	return (s1);
 }

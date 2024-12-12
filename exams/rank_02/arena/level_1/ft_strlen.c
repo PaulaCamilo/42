@@ -5,16 +5,16 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: ppaula-d <ppaula-d@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/05 08:15:36 by ppaula-d          #+#    #+#             */
-/*   Updated: 2024/12/05 08:16:11 by ppaula-d         ###   ########.fr       */
+/*   Created: 2024/12/12 09:04:29 by ppaula-d          #+#    #+#             */
+/*   Updated: 2024/12/12 09:04:57 by ppaula-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 int	ft_strlen(char *str)
 {
-	int	i = 0;
+	int i = 0;
 
-	while (str[i])
+	while (str[i] != '\0')
 		i++;
 	return (i);
 }

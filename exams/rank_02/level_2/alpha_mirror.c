@@ -1,30 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   alpha_mirror.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ppaula-d <ppaula-d@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/05 11:22:33 by ppaula-d          #+#    #+#             */
-/*   Updated: 2024/12/05 11:31:00 by ppaula-d         ###   ########.fr       */
+/*   Created: 2024/12/12 10:42:46 by ppaula-d          #+#    #+#             */
+/*   Updated: 2024/12/12 10:46:14 by ppaula-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_atoi(const char *str)
-{
-	int	result = 0;
-	int	sign = 1;
+#include <unistd.h>
 
-	while (*str == ' ' || *str == '\t')
-		str++;
-	if (*str == '-')
-		sign = -1;
-	if (*str == '-' || *str == '+')
-		str++;
-	while (*str >= '0' && *str <= '9')
+int main(int ac, char **av)
+{
+	int i = 0;
+
+	if (ac == 2)
 	{
-		result = result * 10 + *str - '0';
-		str++;
+		while (av[1][i] != '\0')
+		{
+			if (av[1][i] >= 'a' && av[1][i] <= 'z')
+				av[1][i] = ('a' + 'z') - av[1][i];
+			else if (av[1][i] >= 'A' && av[1][i] <= 'Z')
+				av[1][i] = ('A' + 'Z') - av[1][i];
+			write (1, &av[1][i], 1);
+			i++;
+		}	
 	}
-	return (sign * result);		
+	write (1, "\n", 1);
+	return (0);
 }

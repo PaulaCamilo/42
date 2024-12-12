@@ -5,18 +5,17 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: ppaula-d <ppaula-d@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/05 08:56:13 by ppaula-d          #+#    #+#             */
-/*   Updated: 2024/12/05 08:59:30 by ppaula-d         ###   ########.fr       */
+/*   Created: 2024/12/12 09:44:27 by ppaula-d          #+#    #+#             */
+/*   Updated: 2024/12/12 09:50:28 by ppaula-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
-
 char *rev_print(char *str)
 {
 	int i = 0;
 	
-	while (str[i])
+	while (str[i] != '\0')
 		i++;
 	while (--i >= 0)
 		write (1, &str[i], 1);

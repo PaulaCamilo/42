@@ -1,30 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   camel_to_snake.c                                   :+:      :+:    :+:   */
+/*   do_op.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ppaula-d <ppaula-d@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/05 10:50:38 by ppaula-d          #+#    #+#             */
-/*   Updated: 2024/12/05 10:56:43 by ppaula-d         ###   ########.fr       */
+/*   Created: 2024/12/12 11:05:20 by ppaula-d          #+#    #+#             */
+/*   Updated: 2024/12/12 11:19:02 by ppaula-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <stdio.h>
+#include <stdlib.h>
 #include <unistd.h>
 
-int	main(int ac, char **av)
+int main(int ac, char **av)
 {
-	int	i = 0;
-	while (av[1][i])
+	if (ac == 4)
 	{
-		if (av[1][i] >= 'A' && av[1][i] <= 'Z' && i > 0)
-		{
-			write (1, "_", 1);
-			av[1][i] += 32;
-		}
-		write (1, &av[1][i], 1);
-		i++;
+		if (av[2][0] == '+')
+			printf("%d", atoi(av[1]) + atoi(av[3]));
+		if (av[2][0] == '-')
+			printf("%d", atoi(av[1]) - atoi(av[3]));
+		if (av[2][0] == '*')
+			printf("%d", atoi(av[1]) * atoi(av[3]));
+		if (av[2][0] == '/')
+			printf("%d", atoi(av[1]) / atoi(av[3]));
+		if (av[2][0] == '%')
+			printf("%d", atoi(av[1]) % atoi(av[3]));
 	}
-	write (1, "\n", 1);
+	printf("\n");
 	return (0);
 }

@@ -5,19 +5,19 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: ppaula-d <ppaula-d@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/05 09:48:02 by ppaula-d          #+#    #+#             */
-/*   Updated: 2024/12/05 09:58:04 by ppaula-d         ###   ########.fr       */
+/*   Created: 2024/12/12 10:07:44 by ppaula-d          #+#    #+#             */
+/*   Updated: 2024/12/12 10:14:56 by ppaula-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 
-int	main(int ac, char **av)
+int main(int ac, char **av)
 {
-	int	i = 0;
+	int i = 0;
 	if (ac == 4 && !av[2][1] && !av[3][1])
 	{
-		while (av[1][i])
+		while (av[1][i] != '\0')
 		{
 			if (av[1][i] == av[2][0])
 				av[1][i] = av[3][0];
