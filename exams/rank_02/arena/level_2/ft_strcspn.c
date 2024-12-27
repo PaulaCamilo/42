@@ -1,33 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   camel_to_snake.c                                   :+:      :+:    :+:   */
+/*   ft_strcspn.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ppaula-d <ppaula-d@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/12 10:50:05 by ppaula-d          #+#    #+#             */
-/*   Updated: 2024/12/12 11:02:14 by ppaula-d         ###   ########.fr       */
+/*   Created: 2024/12/16 14:44:32 by ppaula-d          #+#    #+#             */
+/*   Updated: 2024/12/16 14:45:04 by ppaula-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
+#include <stdlib.h>
 
-int main(int ac, char **av)
+size_t	ft_strcspn(const char *s, const char *reject)
 {
-	int i = 0;
+	size_t i = 0;
+	size_t j = 0;
 
-	if (ac > 1)
-	{
-		while (av[1][i] != '\0')
-		{
-			if (av[1][i] >= 'A' && av[1][i] <= 'Z')
-			{
-				av[1][i] += 32;
-				write (1, "_", 1);
-			}
-			write (1, &av[1][i], 1);
-			i++;
-		}
-	}
-	return (0);
+	
 }

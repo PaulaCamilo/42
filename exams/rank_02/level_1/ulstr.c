@@ -1,43 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strrev.c                                        :+:      :+:    :+:   */
+/*   ulstr.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ppaula-d <ppaula-d@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/12 14:13:30 by ppaula-d          #+#    #+#             */
-/*   Updated: 2024/12/12 14:46:50 by ppaula-d         ###   ########.fr       */
+/*   Created: 2024/12/12 10:32:47 by ppaula-d          #+#    #+#             */
+/*   Updated: 2024/12/12 10:40:33 by ppaula-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-char    *ft_strrev(char *str)
+#include <unistd.h>
+
+int main(int ac, char **av)
 {
 	int i = 0;
-	int len = 0;
-	char temp;
 
-	while (str[len])
-		len++;
-	while (i < len - 1)
+	if (ac == 2)
 	{
-		temp = str[i];
-		str[i] = str[len - 1];
-		str[len - 1] = temp;
-		len--;
-		i++;
+		while (av[1][i] != '\0')
+		{
+			if (av[1][i] >= 'a' && av[1][i] <= 'z')
+				av[1][i] -= 32;
+			else if (av[1][i] >= 'A' && av[1][i] <= 'Z')
+				av[1][i] += 32;
+			write (1, &av[1][i], 1);
+			i++;
+		}
 	}
-	return (str);
-}
-
-#include <stdio.h>
-
-int main(void)
-{
-	char str[100] = "Zedro 42";
-	char *rev = NULL;
-
-	rev = ft_strrev(str);
-	printf("%s\n", rev);
-
+	write (1, "\n", 1);
 	return (0);
 }

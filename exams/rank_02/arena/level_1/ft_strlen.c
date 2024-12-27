@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: ppaula-d <ppaula-d@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/12 09:04:29 by ppaula-d          #+#    #+#             */
-/*   Updated: 2024/12/12 09:04:57 by ppaula-d         ###   ########.fr       */
+/*   Created: 2024/12/16 13:33:51 by ppaula-d          #+#    #+#             */
+/*   Updated: 2024/12/16 13:34:16 by ppaula-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@ int	ft_strlen(char *str)
 {
 	int i = 0;
 
-	while (str[i] != '\0')
+	while (str[i])
 		i++;
 	return (i);
 }

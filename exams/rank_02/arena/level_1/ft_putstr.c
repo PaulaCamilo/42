@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: ppaula-d <ppaula-d@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/12 08:52:52 by ppaula-d          #+#    #+#             */
-/*   Updated: 2024/12/12 08:54:49 by ppaula-d         ###   ########.fr       */
+/*   Created: 2024/12/16 13:26:58 by ppaula-d          #+#    #+#             */
+/*   Updated: 2024/12/16 13:32:16 by ppaula-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 void	ft_putstr(char *str)
 {
 	int i = 0;
-	while (str[i] != '\0')
+	while (str[i])
 	{
 		write (1, &str[i], 1);
 		i++;

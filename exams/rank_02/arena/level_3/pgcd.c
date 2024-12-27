@@ -1,48 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strdup.c                                        :+:      :+:    :+:   */
+/*   pgcd.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ppaula-d <ppaula-d@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/12 13:58:17 by ppaula-d          #+#    #+#             */
-/*   Updated: 2024/12/12 14:12:45 by ppaula-d         ###   ########.fr       */
+/*   Created: 2024/12/19 11:33:38 by ppaula-d          #+#    #+#             */
+/*   Updated: 2024/12/19 11:41:40 by ppaula-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
-
-char    *ft_strdup(char *src)
-{
-	int i = 0;
-	int length = 0;
-	char *strcpy;
-
-	while (src[length])
-		length++;
-	strcpy = malloc(sizeof(*strcpy) * (length + 1));
-	if (strcpy != NULL)
-	{
-		while (src[i])
-		{
-			strcpy[i] = src[i];
-			i++;
-		}
-		strcpy = '\0';
-	}
-	return (strcpy);
-}
-
 #include <stdio.h>
 
-int main(void)
+int main(int ac, char **av)
 {
-	char *str = "Zedro 42";
-	char *dup;
+	char n1;
+	char n2;
 
-	dup = ft_strdup(str);
-	printf("      str : %s\n", str);
-	printf("ft_strdup : %s\n", dup);
-
+	if (ac == 3)
+	{
+		if ((n1 == atoi(av[1])) > 0 && n2 == atoi(av[2]) > 0)
+		{
+			while (n1 != n2)
+			{
+				if (n1 > n2)
+					n1 -= n2;
+				else
+					n2 -= n1;
+			}
+			printf("%d", n1);
+		}
+	}
+	printf("\n", 1);
 	return (0);
 }

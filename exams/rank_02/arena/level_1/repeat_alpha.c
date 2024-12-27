@@ -5,28 +5,26 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: ppaula-d <ppaula-d@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/12 09:06:11 by ppaula-d          #+#    #+#             */
-/*   Updated: 2024/12/12 09:35:45 by ppaula-d         ###   ########.fr       */
+/*   Created: 2024/12/16 13:35:20 by ppaula-d          #+#    #+#             */
+/*   Updated: 2024/12/16 13:46:04 by ppaula-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-#include <unistd.h>
 
 int main(int ac, char **av)
 {
 	int i = 0;
-	int j;
-
+	int j = 0;
 	if (ac == 2)
 	{
-		while (av[1][i] != '\0')
+		while (av[1][i])
 		{
-			j = 1;
 			if (av[1][i] >= 'a' && av[1][i] <= 'z')
-				j = av[1][i] - 96;
-			if (av[1][i] >= 'A' && av[1][i] <= 'Z')
-				j = av[1][i] - 64;
-			while (j >= 1)
+				j = av[1][i] - 'a' + 1;
+			else if (av[1][i] >= 'A' && av[1][i] <= 'Z')
+				j = av[1][i] - 'A' + 1;
+			else
+				write (1, &av[1][i], 1);
+			while (j >= 0)
 			{
 				write (1, &av[1][i], 1);
 				j--;

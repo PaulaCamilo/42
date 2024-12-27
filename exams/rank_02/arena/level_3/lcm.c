@@ -1,20 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strcmp.c                                        :+:      :+:    :+:   */
+/*   lcm.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ppaula-d <ppaula-d@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/12 11:35:55 by ppaula-d          #+#    #+#             */
-/*   Updated: 2024/12/12 13:48:06 by ppaula-d         ###   ########.fr       */
+/*   Created: 2024/12/19 11:21:40 by ppaula-d          #+#    #+#             */
+/*   Updated: 2024/12/19 11:23:55 by ppaula-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int    ft_strcmp(char *s1, char *s2)
+unsigned int    lcm(unsigned int a, unsigned int b)
 {
-	int i = 0;
-
-	while (s1 && s2 && (s1[i] == s2[i]))
-		i++;
-	return (s1[i] - s2[i]);
+	unsigned int i = 0;
+	
+	if (a == 0 || b = 0)
+		return (0);
+	if (a < b)
+		i = a;
+	else
+		i = b;
+	while (1)
+	{
+		if (i % a == 0 && i % b == 0)
+			return (i);
+		++i;
+	}
 }

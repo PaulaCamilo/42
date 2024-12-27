@@ -1,34 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   do_op.c                                            :+:      :+:    :+:   */
+/*   repeat_alpha.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ppaula-d <ppaula-d@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/12 11:05:20 by ppaula-d          #+#    #+#             */
-/*   Updated: 2024/12/12 11:19:02 by ppaula-d         ###   ########.fr       */
+/*   Created: 2024/12/12 09:06:11 by ppaula-d          #+#    #+#             */
+/*   Updated: 2024/12/12 09:35:45 by ppaula-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-#include <stdlib.h>
 #include <unistd.h>
 
 int main(int ac, char **av)
 {
-	if (ac == 4)
+	int i = 0;
+	int j;
+
+	if (ac == 2)
 	{
-		if (av[2][0] == '+')
-			printf("%d", atoi(av[1]) + atoi(av[3]));
-		if (av[2][0] == '-')
-			printf("%d", atoi(av[1]) - atoi(av[3]));
-		if (av[2][0] == '*')
-			printf("%d", atoi(av[1]) * atoi(av[3]));
-		if (av[2][0] == '/')
-			printf("%d", atoi(av[1]) / atoi(av[3]));
-		if (av[2][0] == '%')
-			printf("%d", atoi(av[1]) % atoi(av[3]));
+		while (av[1][i] != '\0')
+		{
+			j = 1;
+			if (av[1][i] >= 'a' && av[1][i] <= 'z')
+				j = av[1][i] - 96;
+			if (av[1][i] >= 'A' && av[1][i] <= 'Z')
+				j = av[1][i] - 64;
+			while (j >= 1)
+			{
+				write (1, &av[1][i], 1);
+				j--;
+			}
+			i++;
+		}
 	}
-	printf("\n");
+	write (1, "\n", 1);
 	return (0);
 }

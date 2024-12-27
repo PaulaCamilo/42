@@ -5,30 +5,30 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: ppaula-d <ppaula-d@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/12 09:50:44 by ppaula-d          #+#    #+#             */
-/*   Updated: 2024/12/12 09:57:39 by ppaula-d         ###   ########.fr       */
+/*   Created: 2024/12/16 13:52:22 by ppaula-d          #+#    #+#             */
+/*   Updated: 2024/12/16 13:57:24 by ppaula-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 
-int	main(int ac, char **av)
+int main(int ac, char **av)
 {
 	int i = 0;
-
+	
 	if (ac == 2)
 	{
-		while (av[1][i] != '\0')
+		while (av[1][i])
 		{
-			if (av[1][i] >= 'a' && av[1][i] <= 'm'
-					|| av[1][i] >= 'A' && av[1][i] <= 'M')
-				av[1][i] += 13;
-			else if (av[1][i] >= 'n' && av[1][i] <= 'z'
-					|| av[1][i] >= 'N' && av[1][i] <= 'Z')
-				av[1][i] -= 13;
+			if ((av[1][i] >= 'a' && av[1][i] <= 'm')
+					|| (av[1][i] >= 'A' && av[1][i] <= 'M'))
+					av[1][i] += 13;
+			else if ((av[1][i] >= 'n' && av[1][i] <= 'z')
+					|| (av[1][i] >= 'N' && av[1][i] <= 'Z'))
+					av[1][i] -= 13;
 			write (1, &av[1][i], 1);
-			i++;
-		}
+			i++;					
+		}	
 	}
 	write (1, "\n", 1);
 	return (0);

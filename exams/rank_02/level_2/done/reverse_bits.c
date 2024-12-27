@@ -1,33 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   alpha_mirror.c                                     :+:      :+:    :+:   */
+/*   reverse_bits.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ppaula-d <ppaula-d@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/12 10:42:46 by ppaula-d          #+#    #+#             */
-/*   Updated: 2024/12/12 10:46:14 by ppaula-d         ###   ########.fr       */
+/*   Created: 2024/12/13 11:16:50 by ppaula-d          #+#    #+#             */
+/*   Updated: 2024/12/13 13:37:00 by ppaula-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
-
-int main(int ac, char **av)
+unsigned char	reverse_bits(unsigned char octet)
 {
-	int i = 0;
+	int i = 8;
+	unsigned char res = 0;
 
-	if (ac == 2)
+	while (i > 0)
 	{
-		while (av[1][i] != '\0')
-		{
-			if (av[1][i] >= 'a' && av[1][i] <= 'z')
-				av[1][i] = ('a' + 'z') - av[1][i];
-			else if (av[1][i] >= 'A' && av[1][i] <= 'Z')
-				av[1][i] = ('A' + 'Z') - av[1][i];
-			write (1, &av[1][i], 1);
-			i++;
-		}	
+		res = res * 2 + (octet % 2);
+		octet = octet / 2;
+		i--;
 	}
-	write (1, "\n", 1);
-	return (0);
+	return (res);
 }

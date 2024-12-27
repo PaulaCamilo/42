@@ -1,32 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strcspn.c                                       :+:      :+:    :+:   */
+/*   fprime.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ppaula-d <ppaula-d@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/12 13:48:48 by ppaula-d          #+#    #+#             */
-/*   Updated: 2024/12/12 14:50:57 by ppaula-d         ###   ########.fr       */
+/*   Created: 2024/12/19 12:46:44 by ppaula-d          #+#    #+#             */
+/*   Updated: 2024/12/19 14:03:32 by ppaula-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <string.h>
+#include <stdio.h>
+#include <stdlib.h>
 
-size_t	ft_strcspn(const char *s, const char *reject)
+int main(int ac, char **av)
 {
-	size_t i = 0;
-	size_t j = 0;
+	int i;
+	int number;
 
-	while (s[i] != '\0')
+	if (ac == 2)
 	{
-		while (reject[j] != '\0')
+		i = 1;
+		number = atoi(av[1]);
+		if (number == 1)
+			printf("1");
+		while (number >= ++i)
 		{
-			if (reject[j] == s[i])
-				return (i);
-			j++;
+			if (number % i == 0)
+			{
+				printf("%d", i);
+				if (number == i)
+					break;
+				printf("*");
+				number /= i;
+				i = 1;
+			}
 		}
-		j = 0;
-		i++;
 	}
-	return (i);
+	printf("\n");
+	return (0);
 }

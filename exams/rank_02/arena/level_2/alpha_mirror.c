@@ -1,54 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   inter.c                                            :+:      :+:    :+:   */
+/*   alpha_mirror.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ppaula-d <ppaula-d@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/12 14:55:25 by ppaula-d          #+#    #+#             */
-/*   Updated: 2024/12/12 15:10:47 by ppaula-d         ###   ########.fr       */
+/*   Created: 2024/12/16 14:28:10 by ppaula-d          #+#    #+#             */
+/*   Updated: 2024/12/16 14:32:57 by ppaula-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 
-int	main(int ac, char **av)
-{
-	int	i;
-	int k;
-	int l;
-	char *s1;
-	char *s2;
+int main(int ac, char **av)
+{	int i = 0;
 
-	i = 0;
-	l = 0;
-	if (ac == 3)
+	if (ac == 2)
 	{
-		s1 = av[1];
-		s2 = av[2];
-		while (s1[i] != '\0')
+		while (av[1][i])
 		{
-			k = 0;
-			while (s2[k] != '\0')
-			{
-				if(s1[i] == s2[k])
-				{ 
-					l = 0;
-					while (s1[l] != s1[i])
-						l++;
-					if (l == i)
-					{
-						l = 0;
-						while (s2[l] != s2[k])
-							l++;
-						if (l == k)
-							write(1, &s1[i], 1);
-					}
-				}
-				k++;
-			}
+			if (av[1][i] >= 'a' && av[1][i] <=  'z')
+				av[1][i] = ('a' + 'z') - av[1][i];
+			else if (av[1][i] >= 'A' && av[1][i] <=  'Z')
+				av[1][i] = ('A' + 'Z') - av[1][i];
+			write (1, &av[1][i], 1);
 			i++;
 		}
 	}
-	write(1, "\n", 1);
+	write (1, "\n", 1);
+	return (0);
 }
