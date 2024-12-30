@@ -1,28 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   ft_error.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ppaula-d <ppaula-d@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/27 10:58:15 by ppaula-d          #+#    #+#             */
-/*   Updated: 2024/12/27 14:16:42 by ppaula-d         ###   ########.fr       */
+/*   Created: 2024/12/30 10:58:18 by ppaula-d          #+#    #+#             */
+/*   Updated: 2024/12/30 11:00:30 by ppaula-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_H
-# define PUSH_SWAP_H
+#include "push_swap.h"
 
-#include <stdlib.h>
-#include <limits.h>
-
-typedef struct s_stack_node
+void	ft_error(void)
 {
-	int					value;
-	int					current_position;
-	struct s_stack_node *next;
-	struct s_stack_node *previous;
-	
-}						t_stack_node;
-
-#endif
+	write (2, "Error\n", 6);// 2, file descriptor for standar error (stderr)
+	exit (1); //immediately terminates the program with an error status
+}

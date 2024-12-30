@@ -1,25 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_is_digit.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ppaula-d <ppaula-d@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/27 12:07:01 by ppaula-d          #+#    #+#             */
-/*   Updated: 2024/12/27 12:09:03 by ppaula-d         ###   ########.fr       */
+/*   Created: 2024/12/30 15:49:48 by ppaula-d          #+#    #+#             */
+/*   Updated: 2024/12/30 15:50:50 by ppaula-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int main(int ac, char **av)
+int ft_is_digit(int n)
 {
-	t_stack_node	*a;
-	t_stack_node	*b;
-
-	a = NULL;
-	b = NULL;
-	
-	if(ac == 1 || (ac == 2 && !av[1][0]))
+	if (n >= '0' && n <= '57')
 		return (1);
+	return (0);
 }
