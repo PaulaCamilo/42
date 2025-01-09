@@ -1,37 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   pgcd.c                                             :+:      :+:    :+:   */
+/*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ppaula-d <ppaula-d@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/28 14:31:02 by ppaula-d          #+#    #+#             */
-/*   Updated: 2024/11/28 14:38:12 by ppaula-d         ###   ########.fr       */
+/*   Created: 2025/01/08 16:17:28 by ppaula-d          #+#    #+#             */
+/*   Updated: 2025/01/08 16:26:16 by ppaula-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
-#include <stdio.h>
 
-int main(int ac, char **av)
+char    *ft_strdup(char *src)
 {
-    if (ac == 3)
-    {
-        int a = atoi(av[1]);
-        int b = atoi(av[2]);
-        int n = 0;
+    int i = 0;
+    char *new;
 
-        n = a;
-        while (n > 0)
+    while (src[i])
+        i++;
+    new = malloc(sizeof(*new) * (i + 1));
+    if (new == NULL)
+        return (NULL);
+    i = 0;
+    while (src[i])
         {
-            if (a % n == 0 && b % n == 0)
-            {
-                printf("%d", n);
-                break ;
-            }
-            n--;
+            new[i] = src[i];
+            i++;
         }
-    }
-    printf("\n");
-    return (0);
+    new[i] = src[i];
+    return (new);
 }

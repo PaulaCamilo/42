@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: ppaula-d <ppaula-d@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/07 13:16:36 by ppaula-d          #+#    #+#             */
-/*   Updated: 2025/01/07 13:28:41 by ppaula-d         ###   ########.fr       */
+/*   Created: 2025/01/09 12:29:07 by ppaula-d          #+#    #+#             */
+/*   Updated: 2025/01/09 12:30:45 by ppaula-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,15 +14,15 @@
 
 int main(int ac, char **av)
 {
-	if (ac == 2)
-	{
-		int i = 0;
-		
-		while (av[1][i])
-			i++;
-		while (--i >= 0)
-			write (1, &av[1][i], 1);
-	}
-	write (1, "\n", 1);
-	return (0);
+    int i;
+    if (ac == 2)
+    {
+        i = 0;
+        while (av[1][i])
+            i++;
+        while (--i >= 0)
+            write (1, &av[1][i], 1);
+    }
+    write(1, "\n", 1);
+    return (0);
 }

@@ -1,37 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   pgcd.c                                             :+:      :+:    :+:   */
+/*   do_op.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ppaula-d <ppaula-d@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/28 14:31:02 by ppaula-d          #+#    #+#             */
-/*   Updated: 2024/11/28 14:38:12 by ppaula-d         ###   ########.fr       */
+/*   Created: 2025/01/08 17:44:13 by ppaula-d          #+#    #+#             */
+/*   Updated: 2025/01/08 17:47:47 by ppaula-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
 #include <stdio.h>
+#include <stdlib.h>
 
 int main(int ac, char **av)
 {
-    if (ac == 3)
+    if (ac == 4)
     {
-        int a = atoi(av[1]);
-        int b = atoi(av[2]);
-        int n = 0;
-
-        n = a;
-        while (n > 0)
-        {
-            if (a % n == 0 && b % n == 0)
-            {
-                printf("%d", n);
-                break ;
-            }
-            n--;
-        }
+        if (av[2][0] == '+')
+            printf("%d", (atoi(av[1]) + atoi(av[3])));
+        if (av[2][0] == '-')
+            printf("%d", (atoi(av[1]) - atoi(av[3])));
+        if (av[2][0] == '*')
+            printf("%d", (atoi(av[1]) * atoi(av[3])));
+        if (av[2][0] == '/')
+            printf("%d", (atoi(av[1]) / atoi(av[3])));
+        if (av[2][0] == '%')
+            printf("%d", (atoi(av[1]) % atoi(av[3])));
     }
-    printf("\n");
+    printf ("\n");
     return (0);
 }

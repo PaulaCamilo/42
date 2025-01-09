@@ -1,37 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   pgcd.c                                             :+:      :+:    :+:   */
+/*   ft_range.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ppaula-d <ppaula-d@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/28 14:31:02 by ppaula-d          #+#    #+#             */
-/*   Updated: 2024/11/28 14:38:12 by ppaula-d         ###   ########.fr       */
+/*   Created: 2025/01/08 20:07:52 by ppaula-d          #+#    #+#             */
+/*   Updated: 2025/01/08 20:11:37 by ppaula-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
-#include <stdio.h>
 
-int main(int ac, char **av)
+int     *ft_range(int start, int end)
 {
-    if (ac == 3)
+    int i = 0;
+    int length = abs(end - start) + 1;
+    int *new = malloc(sizeof(int) * length);
+    
+    while (i < length)
     {
-        int a = atoi(av[1]);
-        int b = atoi(av[2]);
-        int n = 0;
-
-        n = a;
-        while (n > 0)
+        if (start < end)
         {
-            if (a % n == 0 && b % n == 0)
-            {
-                printf("%d", n);
-                break ;
-            }
-            n--;
+            new[i] = start;
+            start++;
+            i++;
+        }
+        else
+        {
+            new[i] = start;
+            start--;
+            i++;
         }
     }
-    printf("\n");
-    return (0);
+    return (new);
 }

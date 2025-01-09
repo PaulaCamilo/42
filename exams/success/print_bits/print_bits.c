@@ -1,37 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   pgcd.c                                             :+:      :+:    :+:   */
+/*   print_bits.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ppaula-d <ppaula-d@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/28 14:31:02 by ppaula-d          #+#    #+#             */
-/*   Updated: 2024/11/28 14:38:12 by ppaula-d         ###   ########.fr       */
+/*   Created: 2025/01/08 20:06:17 by ppaula-d          #+#    #+#             */
+/*   Updated: 2025/01/08 20:07:05 by ppaula-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
-#include <stdio.h>
+#include <unistd.h>
 
-int main(int ac, char **av)
+void	print_bits(unsigned char octet)
 {
-    if (ac == 3)
+    int i = 8;
+    unsigned char bit;
+    
+    while (i--)
     {
-        int a = atoi(av[1]);
-        int b = atoi(av[2]);
-        int n = 0;
-
-        n = a;
-        while (n > 0)
-        {
-            if (a % n == 0 && b % n == 0)
-            {
-                printf("%d", n);
-                break ;
-            }
-            n--;
-        }
+        bit = (octet >> i & 1) + '0';
+        write (1, &bit, 1);
     }
-    printf("\n");
-    return (0);
 }

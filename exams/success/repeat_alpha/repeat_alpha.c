@@ -1,37 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   pgcd.c                                             :+:      :+:    :+:   */
+/*   repeat_alpha.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ppaula-d <ppaula-d@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/28 14:31:02 by ppaula-d          #+#    #+#             */
-/*   Updated: 2024/11/28 14:38:12 by ppaula-d         ###   ########.fr       */
+/*   Created: 2025/01/06 22:28:26 by ppaula-d          #+#    #+#             */
+/*   Updated: 2025/01/06 22:39:55 by ppaula-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
-#include <stdio.h>
+#include <unistd.h>
 
 int main(int ac, char **av)
 {
-    if (ac == 3)
+    int i = 0;
+    int j = 0;
+    if (ac == 2)
     {
-        int a = atoi(av[1]);
-        int b = atoi(av[2]);
-        int n = 0;
-
-        n = a;
-        while (n > 0)
+        while (av[1][i])
         {
-            if (a % n == 0 && b % n == 0)
+            j = 0;
+            if (av[1][i] >= 'A' && av[1][i] <= 'Z')
+                j = av[1][i] - 'A';
+            else if (av[1][i] >= 'a' && av[1][i] <= 'z')
+                j = av[1][i] - 'a';
+            while (j >=  0)
             {
-                printf("%d", n);
-                break ;
+                write (1, &av[1][i], 1);
+                j--;
             }
-            n--;
+            i++;
         }
     }
-    printf("\n");
+    write (1, "\n", 1);
     return (0);
 }

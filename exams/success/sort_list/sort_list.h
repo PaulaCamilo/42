@@ -1,23 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstr.c                                        :+:      :+:    :+:   */
+/*   sort_list.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ppaula-d <ppaula-d@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/09 18:01:09 by ppaula-d          #+#    #+#             */
-/*   Updated: 2024/12/09 18:01:51 by ppaula-d         ###   ########.fr       */
+/*   Created: 2025/01/08 19:36:39 by ppaula-d          #+#    #+#             */
+/*   Updated: 2025/01/08 19:37:13 by ppaula-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
-
-void	ft_putstr(char *str)
+typedef struct s_list t_list
 {
-    int i = 0;
-    while (str[i] != '\0')
-    {
-        write (1, &str[i], 1);
-        i++;
-    }
-}
+    struct s_list   *data;
+    
+    
+};

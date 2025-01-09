@@ -1,37 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   pgcd.c                                             :+:      :+:    :+:   */
+/*   ft_list_size.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ppaula-d <ppaula-d@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/28 14:31:02 by ppaula-d          #+#    #+#             */
-/*   Updated: 2024/11/28 14:38:12 by ppaula-d         ###   ########.fr       */
+/*   Created: 2025/01/09 13:18:00 by ppaula-d          #+#    #+#             */
+/*   Updated: 2025/01/09 13:18:35 by ppaula-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
-#include <stdio.h>
-
-int main(int ac, char **av)
+typedef struct    s_list
 {
-    if (ac == 3)
-    {
-        int a = atoi(av[1]);
-        int b = atoi(av[2]);
-        int n = 0;
+    struct s_list *next;
+    void          *data;
+}                 t_list;
 
-        n = a;
-        while (n > 0)
-        {
-            if (a % n == 0 && b % n == 0)
-            {
-                printf("%d", n);
-                break ;
-            }
-            n--;
-        }
+int	ft_list_size(t_list *begin_list)
+{
+    int i = 0;
+    
+    while (begin_list)
+    {
+        begin_list = begin_list->next;
+        i++;
     }
-    printf("\n");
-    return (0);
+    return (i);
 }

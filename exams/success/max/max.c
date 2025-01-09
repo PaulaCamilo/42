@@ -1,23 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstr.c                                        :+:      :+:    :+:   */
+/*   max.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ppaula-d <ppaula-d@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/09 18:01:09 by ppaula-d          #+#    #+#             */
-/*   Updated: 2024/12/09 18:01:51 by ppaula-d         ###   ########.fr       */
+/*   Created: 2024/12/09 18:02:44 by ppaula-d          #+#    #+#             */
+/*   Updated: 2024/12/09 18:03:05 by ppaula-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
-
-void	ft_putstr(char *str)
+int max(int *tab, unsigned int len)
 {
-    int i = 0;
-    while (str[i] != '\0')
-    {
-        write (1, &str[i], 1);
-        i++;
-    }
+	int result;
+	unsigned int i = 0;
+	
+	if (len == 0)
+		return (0);
+	result = tab[0];
+	while(i < len)
+	{
+		if (result <  tab[i])
+			result = tab[i];
+		i++;
+	}
+	return result;
 }

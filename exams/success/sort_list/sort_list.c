@@ -5,31 +5,33 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: ppaula-d <ppaula-d@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/07 14:56:53 by ppaula-d          #+#    #+#             */
-/*   Updated: 2025/01/07 15:05:50 by ppaula-d         ###   ########.fr       */
+/*   Created: 2025/01/08 19:35:53 by ppaula-d          #+#    #+#             */
+/*   Updated: 2025/01/08 19:49:52 by ppaula-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
 #include "list.h"
 
 t_list	*sort_list(t_list* lst, int (*cmp)(int, int))
 {
-	int swap;
-	t_list	*start;
+	t_list	*lst_start;
+	int		to_swap;
 
-	start = lst;
-	while (lst != NULL && lst->next != NULL)
+	if (!lst)
+		return (0);
+	lst_start = lst;
+	while (lst->next)
 	{
-		if ((*cmp)(lst->data, lst->next->data) == 0)
+		if (((*cmp)(lst->data, lst->next->data)) == 0)
 		{
-			swap = lst->data;
+			to_swap = lst->data;
 			lst->data = lst->next->data;
-			lst->next->data = swap;
-			lst = start;
+			lst->next->data = to_swap;
+			lst = lst_start;
 		}
 		else
 			lst = lst->next;
 	}
-	return (start);
+	lst = lst_start;
+	return (lst);
 }
