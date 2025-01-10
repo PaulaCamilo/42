@@ -6,7 +6,7 @@
 /*   By: ppaula-d <ppaula-d@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/07 12:10:25 by ppaula-d          #+#    #+#             */
-/*   Updated: 2025/01/07 12:11:45 by ppaula-d         ###   ########.fr       */
+/*   Updated: 2025/01/10 12:55:39 by ppaula-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 // Here we free the stack after sorting it.
 
-void	ft_free(t_stack_node **list)
+void	ft_free_stack(t_stack_node **list)
 {
 	t_stack_node *temp;
 
