@@ -6,7 +6,7 @@
 /*   By: ppaula-d <ppaula-d@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/27 10:58:15 by ppaula-d          #+#    #+#             */
-/*   Updated: 2025/01/07 11:33:28 by ppaula-d         ###   ########.fr       */
+/*   Updated: 2025/01/10 15:49:49 by ppaula-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,14 +27,15 @@ typedef struct s_stack_node
 
 // SOURCES
 
-t_stack_node *ft_nbr_process(int ac, char **av);
-t_stack_node *ft_nbr_sub_process(char **av);
+t_stack_node *nbr_process(int ac, char **av);
+t_stack_node *nbr_sub_process(char **av);
 
 // UTILS
 char	**ft_split(char const *s, char c);
 
 int		ft_atol(const char *str);
 int		ft_checkdup_nbr(t_stack_node *a);
+int		ft_check_sorted_stack(t_stack_node *stack_a);
 int 	ft_is_digit(int n);
 int		ft_list_size(t_stack_node *list);
 int 	ft_strlen(const char *str);
@@ -42,8 +43,9 @@ int 	ft_strlen(const char *str);
 t_stack_node *ft_list_last(t_stack_node *list);
 t_stack_node *ft_stack_new_node(int content);
 
-void	ft_add_back(t_stack_node **stack, t_stack_node *stack_new);
+void	add_back(t_stack_node **stack, t_stack_node *stack_new);
 void	ft_error(void);
+void 	ft_pb(t_stack_node **stack_a, t_stack_node **stack_b, int n);
 
 // PARSING
 

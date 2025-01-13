@@ -1,29 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_check_sorted_stack.c                              :+:      :+:    :+:   */
+/*   operations_stack_b.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ppaula-d <ppaula-d@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/07 11:18:06 by ppaula-d          #+#    #+#             */
-/*   Updated: 2025/01/10 15:07:36 by ppaula-d         ###   ########.fr       */
+/*   Created: 2025/01/10 15:14:10 by ppaula-d          #+#    #+#             */
+/*   Updated: 2025/01/10 15:36:02 by ppaula-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-// Here we check if the main stack is correctly sorted
-int	ft_check_sorted_stack(t_stack_node *stack_a)
+// pb (push b): if it's empty, it does nothing. Otherwise, it gets the first 
+// element at the top of the stack a and puts it at the top of the stack b.
+void ft_pb(t_stack_node **stack_a, t_stack_node **stack_b, int n)
 {
-	int i;
+	t_stack_node *temp;
 
-	i = stack_a->value;
-	while (stack_a)
-	{
-		if (i > stack_a->value)
-			return (0);
-		i = stack_a->value;
-		stack_a = stack_a->next;
-	}
-	return (1);
+	if (!*stack_a)
+		return ;
+	temp = *stack_b;
+	*stack_b = *stack_a;
+	*stack_a = (*stack_a)->next;
+	(*stack_b)->next = temp;
+	if (n == 0)
+		write(1, "pb\n", 3);
 }

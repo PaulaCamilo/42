@@ -6,7 +6,7 @@
 /*   By: ppaula-d <ppaula-d@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/30 10:49:44 by ppaula-d          #+#    #+#             */
-/*   Updated: 2025/01/07 11:05:20 by ppaula-d         ###   ########.fr       */
+/*   Updated: 2025/01/10 15:49:43 by ppaula-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 // marks;
 // In this case, the function takes the string, splits the elements in order
 // to create separate integer numbers.
-t_stack_node *ft_nbr_sub_process(char **av)
+t_stack_node *nbr_sub_process(char **av)
 {
 	t_stack_node *a;
 	char **temp;
@@ -46,7 +46,7 @@ t_stack_node *ft_nbr_sub_process(char **av)
 //    converts them to digits, so the program can process them;
 // 3. It checks if the number of input is greater than 2.
 //    If it is, it lists the arguments.
-t_stack_node *ft_nbr_process(int ac, char **av)
+t_stack_node *nbr_process(int ac, char **av)
 {
 	t_stack_node 	*a;
 	int 			i;

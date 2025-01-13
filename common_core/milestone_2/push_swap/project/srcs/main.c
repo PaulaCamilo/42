@@ -6,7 +6,7 @@
 /*   By: ppaula-d <ppaula-d@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/27 12:07:01 by ppaula-d          #+#    #+#             */
-/*   Updated: 2025/01/07 12:12:05 by ppaula-d         ###   ########.fr       */
+/*   Updated: 2025/01/10 12:56:08 by ppaula-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,6 @@ int main(int ac, char **av)
 	}
 	if (!ft_check_sorted_nbr(a))
 		ft_sort_nbrs(&a);
-	ft_free(&a);
+	ft_free_stack(&a);
 	return (0);
 }
