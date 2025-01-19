@@ -6,7 +6,7 @@
 #    By: ppaula-d <ppaula-d@student.42porto.com>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/10/16 12:39:09 by ppaula-d          #+#    #+#              #
-#    Updated: 2024/12/27 10:49:08 by ppaula-d         ###   ########.fr        #
+#    Updated: 2025/01/19 23:24:02 by ppaula-d         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,33 +14,47 @@
 #			        			   VARIABLES				   			       #
 #--------------------------------------=---------------------------------------#
 
-NAME    = push_swap.a
-CC      = cc
-CFLAGS  = -Wall -Wextra -Werror
-SRC_DIR = push_swap
-SRCS    = 
-OBJS    = $(SRCS:.c=.o)
-AR      = ar rcs
-RM      = rm -f
+NAME 	= push_swap
+CC 		= cc
+RM 		= rm -f
+FLAGS 	= -Wall -Werror -Wextra -g
+SRC    	= push_swap.c \
+			ft_utils.c \
+			ft_utils_2.c \
+			algorithm.c \
+			list_utils.c \
+			stack_utils.c \
+			free_utils.c \
+			sort_utils.c \
+			operations_stack_a.c \
+			operations_stack_b.c \
+			operations_both_stacks.c \
+			index_utils.c \
+			rotation_type.c \
+			costs_ab.c \
+			costs_ba.c \
+			rotate_and_push.c \
+			
+OBJ 	= $(SRC:.c=.o)
 
 #--------------------------------------=---------------------------------------#
 #			        			     RULES      			    		       #
 #--------------------------------------=---------------------------------------#
 
-$(NAME): $(OBJS)
-	$(AR) $(NAME) $(OBJS)
+%.o: %.cc
+	$(CC) $(FLAGS) -c $< -o %@
 
-$(SRC_DIR)/%.o: $(SRC_DIR)/%.c
-	$(CC) $(CFLAGS) -c $< -o $@
+$(NAME): $(OBJ)
+	$(CC) $(FLAGS) $(OBJ) -o $(NAME)
 
-all:    $(NAME)
+all : $(NAME)	
 
 clean:
-	$(RM) $(OBJS)
+	$(RM) $(OBJ)
 
 fclean: clean
 	$(RM) $(NAME)
 
 re: fclean all
 
-.PHONY: all fclean re
+.PHONY:		all clean fclean re

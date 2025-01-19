@@ -1,0 +1,50 @@
+add_back                9   + V
+case_rarb               26  + V
+case_rarb_ref_a         45  + V
+case_rrarrb             28  + V
+case_rrarrb_ref_a       46  + V
+case_rarrb              30  + V
+case_rarrb_ref_a        47  + V
+case_rrarb              32  + V
+case_rrarb_ref_a        48  + V
+checkdup_nmb            2     V
+check_main_stack        5     V
+error                   4     V
+execute_rarb            27  + V 
+execute_rrarrb          29  + V
+execute_rarrb           31  + V
+execute_rrarb           33  + V
+final_sort              6   + V
+free_stack              3     V
+free_str                12    V
+ft_atol                 8     V
+ft_is_digit             13    V
+ft_split                11    V
+index_a                 39  + V
+index_b                 36  + V
+index_in_stack          18    V
+list_last               35    V
+list_size               14    V
+min_in_stack            19    V
+max_in_stack            34    V
+nmb_process             1   + V
+num_sub_process         7   + V
+pa                      40    V
+pb                      22    V
+ra                      20  + V
+rb                      38  + V
+rotate_ab               25  + V
+rotate_ba               44  + V
+rr                      37  + V
+rra                     21    V
+rrb                     43  + V
+rrr                     41  + V
+rrr_sub                 42    V
+sa                      15    V
+sort_stack_b            16  + V
+sort_stack_a            17  + V
+sort_stack_b_until_3    23  + V
+sort_three              24  + V
+stack_new_node          10  + V
+
+

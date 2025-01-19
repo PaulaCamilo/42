@@ -1,32 +1,63 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_checkdup_nbr.c                                  :+:      :+:    :+:   */
+/*   list_utils.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ppaula-d <ppaula-d@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/07 11:15:20 by ppaula-d          #+#    #+#             */
-/*   Updated: 2025/01/07 11:17:11 by ppaula-d         ###   ########.fr       */
+/*   Created: 2025/01/19 22:16:23 by ppaula-d          #+#    #+#             */
+/*   Updated: 2025/01/19 22:30:41 by ppaula-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-// Here we'll check if the stack contains any duplicate numbers
-int	ft_checkdup_nbr(t_stack_node *a)
+t_stack	*listlast(t_stack *list)
 {
-	t_stack_node *temp;
+	if (!list)
+		return (NULL);
+	while (list->next)
+		list = list->next;
+	return (list);
+}
 
+int	listsize(t_stack *list)
+{
+	size_t	i;
+
+	i = 0;
+	while (list)
+	{
+		list = list->next;
+		i++;
+	}
+	return (i);
+}
+
+int	min(t_stack *a)
+{
+	int		i;
+
+	i = a->value;
 	while (a)
 	{
-		temp = a->next;
-		while (temp)
-		{
-			if (a->value == temp->value)
-				return (1);
-			temp = temp->next;
-		}
+		if (a->value < i)
+			i = a->value;
 		a = a->next;
 	}
-	return (0);
+	return (i);
+}
+
+int	max(t_stack *a)
+{
+	int		i;
+
+	i = a->value;
+	while (a)
+	{
+		if (a->value > i)
+			i = a->value;
+		a = a->next;
+	}
+	return (i);
 }

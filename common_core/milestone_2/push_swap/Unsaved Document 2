@@ -1,0 +1,24 @@
+
+MAIN.C  --------> PUSH_SWAP_MAIN.C ()
+ALGORITHM.C ----> PROCESS_UTILS.C (nmb_process, nmb_sub_process, checkdup_nmb,
+                   , )
+FT_UTILS.C -----> UTILS.C (ft_freestr, ft_strlen, ft_split)
+            ----> UTILS2.C (ft_is_digit, ft_atol, ft_freestr, , )
+            ----> STACK_NODE_UTILS.C (add_new_back, stack_new, free_stack,
+                  check_sorted, ) 
+LIST_UTILS.C ---> LIST_UTILS.C (list_last, list_size, max, min, )
+            ----> STACK_SORTING.C (sort_stack, sort_b_until_3, sort_b, 
+                  sort_a, sort_three)
+            ----> OPERATIONS_STACK_A.C (sa, ra, pa, , )
+            ----> OPERATIONS_STACK_B.C (pb, rb, rra, rrb, )
+            ----> ROTATIONS_AB_BA.C (rotate_ab, rotate_ba, , , )
+            ----> CALC_ROTATIONS_AB.C (calc_rrarrb_ab, calc_rarb_ab,  
+                  calc_rarrb_ab, calc_rrarb_ab, )
+            ----> FIND_INDEXES.C (find_index_in_stack, find_index_in_b,
+                  find_index_in_a, , )
+            ----> ROTATION_TO_PUSH.C (execute_rarb, execute_rrarrb,
+                  execute_rarrb, execute_rrarb, )
+            ----> OPERATIONS_BOTH_STACKS.C (rr, rrr_cont, rrr, , )
+            ----> CALC_ROTATIONS_BA.C (calc_rrarrb_ba, calc_rarb_ba,
+                  calc_rarrb_ba, calc_rrarb_ba, )
+

@@ -1,67 +1,71 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_split.c                                         :+:      :+:    :+:   */
+/*   ft_utils.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ppaula-d <ppaula-d@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/30 11:10:08 by ppaula-d          #+#    #+#             */
-/*   Updated: 2024/12/30 13:50:25 by ppaula-d         ###   ########.fr       */
+/*   Created: 2025/01/19 22:00:18 by ppaula-d          #+#    #+#             */
+/*   Updated: 2025/01/19 22:05:59 by ppaula-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static int	word_counter(const char *str, char c)
+int ft_strlen(const char *str)
 {
-	int i;
-	int inside_word;
+    int i;
+
+    i = 0;
+    while (str[i])
+        i++;
+    return (i);
+}
+
+static int	count_words(const char *str, char c)
+{
+	int	i;
+	int	trigger;
 
 	i = 0;
-	inside_word = 0;
+	trigger = 0;
 	while (*str)
 	{
-		if (*str != c && inside_word == 0)
+		if (*str != c && trigger == 0)
 		{
-			inside_word = 1;
+			trigger = 1;
 			i++;
 		}
 		else if (*str == c)
-			inside_word = 0;
+			trigger = 0;
 		str++;
 	}
 	return (i);
 }
 
-static char	*word_duplicate(const char *str, int start, int finish)
+static char	*word_dup(const char *str, int start, int finish)
 {
-	char *word;
-	int	i;
+	char	*word;
+	int		i;
 
 	i = 0;
 	word = malloc((finish - start + 1) * sizeof(char));
-	if (!word)
-		return (NULL);
 	while (start < finish)
-	{
-		word[i] = str[start];
-		i++;
-		start++;
-	}
+		word[i++] = str[start++];
 	word[i] = '\0';
 	return (word);
 }
 
-char **ft_split(char const *s, char c)
+char	**ft_split(char const *s, char c)
 {
 	size_t	i;
 	size_t	j;
-	int			index;
-	char		**split;
+	int		index;
+	char	**split;
 
-	split = malloc((word_counter(s, c) + 1) * sizeof(char *));
+	split = malloc((count_words(s, c) + 1) * sizeof(char *));
 	if (!s || !split)
-		return (NULL);
+		return (0);
 	i = 0;
 	j = 0;
 	index = -1;
@@ -71,7 +75,7 @@ char **ft_split(char const *s, char c)
 			index = i;
 		else if ((s[i] == c || i == ft_strlen(s)) && index >= 0)
 		{
-			split[j++] = word_duplicate(s, index, i);
+			split[j++] = word_dup(s, index, i);
 			index = -1;
 		}
 		i++;
