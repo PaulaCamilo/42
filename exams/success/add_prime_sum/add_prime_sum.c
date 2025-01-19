@@ -6,7 +6,7 @@
 /*   By: ppaula-d <ppaula-d@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/06 12:57:40 by ppaula-d          #+#    #+#             */
-/*   Updated: 2025/01/06 13:04:40 by ppaula-d         ###   ########.fr       */
+/*   Updated: 2025/01/09 14:28:38 by ppaula-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ void put_nbr(int n)
 	write (1, &digit, 1);
 }
 
-int main(int ac, char **av)
+int main(int ac, char **av)	
 {
 	if (ac == 2)
 	{

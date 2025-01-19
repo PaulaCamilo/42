@@ -1,33 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   camel_to_snake.c                                   :+:      :+:    :+:   */
+/*   hidenp.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ppaula-d <ppaula-d@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/03 16:22:03 by ppaula-d          #+#    #+#             */
-/*   Updated: 2025/01/03 16:25:52 by ppaula-d         ###   ########.fr       */
+/*   Created: 2025/01/09 14:30:05 by ppaula-d          #+#    #+#             */
+/*   Updated: 2025/01/09 14:36:02 by ppaula-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 
+void hidenp(char *string1, char *string2)
+{
+    while (*string1 != '\0')
+    {
+        while (*string1 != *string2 && *string2 != '\0')
+            ++string2;
+        if (*string2 == '\0')
+        {
+            write (1, "0", 1);
+            return;
+        }
+        ++string2;
+        ++string1;
+    }
+    write (1, "1", 1);
+}
+
 int main(int ac, char **av)
 {
-    int i = 0;
-    if (ac > 1)
-    {
-        while (av[1][i])
-        {
-            if (av[1][i] >= 'A' && av[1][i] <= 'Z')
-            {
-                write (1, "_", 1);
-                av[1][i] += 32;
-            }
-            write (1, &av[1][i], 1);
-            i++;
-        }
-    }
+    if (ac == 3)
+        hidenp(av[1], av[2]);
     write (1, "\n", 1);
     return (0);
 }

@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   tab_mult.c                                         :+:      :+:    :+:   */
+/*   add_prime_sum.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ppaula-d <ppaula-d@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/14 12:16:09 by ppaula-d          #+#    #+#             */
-/*   Updated: 2025/01/14 12:35:28 by ppaula-d         ###   ########.fr       */
+/*   Created: 2025/01/09 14:13:59 by ppaula-d          #+#    #+#             */
+/*   Updated: 2025/01/09 14:18:02 by ppaula-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,45 +15,55 @@
 int ft_atoi(char *s)
 {
     int i = 0;
-    int res = 0;
-
-    while (s[i])
+    while (*s)
     {
-        res = res * 10 + (s[i] - 48);
-        i++;
+        i = i * 10 + (*s - 48);
+        s++;
     }
-    return (res);
+    return (i);
 }
 
-void put_nbr(int n)
+int is_prime(int n)
+{
+    int i = 2;
+
+    if (n <= 1)
+        return (0);
+    while (i * i <= n)
+    {
+        if (n % i == 0)
+            return (0);
+        i++;
+    }
+    return (1);
+}
+
+void print_nmb(int n)
 {
     if (n > 9)
-        put_nbr(n / 10);
+        print_nmb(n / 10);
     char digit = n % 10 + '0';
     write (1, &digit, 1);
 }
 
 int main(int ac, char **av)
 {
-    int i;
-    int mult;
-    
-    if (ac != 2)
-        write (1, "\n", 1);
-    else
+    if (ac == 2)
     {
-        i = 1;
-        mult = ft_atoi(av[1]);
-        while (i <= 9)
+        int nmb = ft_atoi(av[1]);
+        int sum = 0;
+
+        while (nmb > 0)
         {
-            put_nbr(i);
-            write (1, " x ", 3);
-            put_nbr(mult);
-            write (1, " = ", 3);
-            put_nbr (i * mult);
-            write (1, "\n", 1);
-            i++;
+            if (is_prime(nmb))
+                sum += nmb;
+            nmb--;
         }
+        print_nmb(sum);
     }
+
+    if (ac != 2)
+        print_nmb(0);
+    write (1, "\n", 1);
     return (0);
 }
