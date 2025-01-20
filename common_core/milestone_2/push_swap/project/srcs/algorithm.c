@@ -6,11 +6,11 @@
 /*   By: ppaula-d <ppaula-d@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/19 21:59:27 by ppaula-d          #+#    #+#             */
-/*   Updated: 2025/01/19 22:09:24 by ppaula-d         ###   ########.fr       */
+/*   Updated: 2025/01/20 11:50:37 by ppaula-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../include/push_swap.h"
 
 t_stack	*sub_process(char **argv)
 {
@@ -23,7 +23,6 @@ t_stack	*sub_process(char **argv)
 	a = NULL;
 	i = 0;
 	tmp = ft_split(argv[1], ' ');
-	
 	while (tmp[i])
 	{
 		value = ft_atol(tmp[i]);
@@ -31,7 +30,6 @@ t_stack	*sub_process(char **argv)
 		add_back(&a, new_node);
 		i++;
 	}
-	
 	free_str(tmp);
 	free(tmp);
 	return (a);

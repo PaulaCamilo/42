@@ -1,42 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   operations_both_stacks.c                           :+:      :+:    :+:   */
+/*   operations_stack_b.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ppaula-d <ppaula-d@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/19 22:42:44 by ppaula-d          #+#    #+#             */
-/*   Updated: 2025/01/19 22:51:52 by ppaula-d         ###   ########.fr       */
+/*   Created: 2025/01/19 22:42:22 by ppaula-d          #+#    #+#             */
+/*   Updated: 2025/01/20 11:52:10 by ppaula-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../include/push_swap.h"
 
-void	rr(t_stack **a, t_stack **b, int j)
+void	pb(t_stack **stack_a, t_stack **stack_b, int j)
 {
 	t_stack	*tmp;
 
-	if (!*a || !((*a)->next) || !*b || !((*b)->next))
+	if (!*stack_a)
 		return ;
-	tmp = *a;
-	*a = listlast(*a);
-	(*a)->next = tmp; 
-	*a = tmp->next;
-	tmp->next = NULL;
-	tmp = *b;
-	*b = listlast(*b);
-	(*b)->next = tmp;
-	*b = tmp->next;
-	tmp->next = NULL;
+	tmp = *stack_b;
+	*stack_b = *stack_a;
+	*stack_a = (*stack_a)->next;
+	(*stack_b)->next = tmp;
 	if (j == 0)
-		write(1, "rr\n", 3);
+		write(1, "pb\n", 3);
 }
 
-void	rrr_cont(t_stack **b, int j)
+void	rrb(t_stack **b, int j)
 {
 	t_stack	*tmp;
-	int		i; 
+	int		i;
 
+	if (!*b || !(*b)->next)
+		return ;
 	i = 0;
 	tmp = *b;
 	while ((*b)->next)
@@ -52,29 +48,20 @@ void	rrr_cont(t_stack **b, int j)
 	}
 	tmp->next = NULL;
 	if (j == 0)
-		write(1, "rrr\n", 4);
+		write(1, "rrb\n", 4);
 }
 
-void	rrr(t_stack **a, t_stack **b, int j)
+void	rb(t_stack **b, int j)
 {
 	t_stack	*tmp;
-	int		i;
 
-	if (!*a || !((*a)->next) || !*b || !((*b)->next))
+	if (!*b || !(*b)->next)
 		return ;
-	i = 0;
-	tmp = *a;
-	while ((*a)->next)
-	{
-		i++;
-		*a = (*a)->next;
-	}
-	(*a)->next = tmp;
-	while (i > 1)
-	{
-		tmp = tmp->next;
-		i--;
-	}
+	tmp = *b;
+	*b = listlast(*b);
+	(*b)->next = tmp;
+	*b = tmp->next;
 	tmp->next = NULL;
-	rrr_cont(b, j);
+	if (j == 0)
+		write(1, "rb\n", 3);
 }
