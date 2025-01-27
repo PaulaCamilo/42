@@ -1,37 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   hidenp.c                                           :+:      :+:    :+:   */
+/*   ft_strcspn.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ppaula-d <ppaula-d@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/09 14:30:05 by ppaula-d          #+#    #+#             */
-/*   Updated: 2025/01/22 17:56:10 by ppaula-d         ###   ########.fr       */
+/*   Created: 2025/01/22 16:20:35 by ppaula-d          #+#    #+#             */
+/*   Updated: 2025/01/22 16:26:28 by ppaula-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
+#include <stdlib.h>
 
-int main(int ac, char **av)
+size_t ft_strcspn(const char *s, const char *reject)
 {
-    int i;
-    int j;
+    size_t i = 0;
+    size_t j = 0;
 
-    if (ac == 3)
+    while (s[i]) // while s[i] is not null
     {
-        i = 0;
-        j = 0;
-        while (av[2][j] && av[1][i])
+        i = 0; 
+        while (reject[j]) // while reject[j] is not null
         {
-            if (av[2][j] == av[1][i])
-                i++;
+            if (s[i] == reject[j]) // if s[i] is equal to reject[j]
+                return (i); // return i
             j++;
         }
-        if (av[1][i] == '\0')
-            write (1, "1", 1);
-        else
-            write (1, "0", 1);
+        i++;
     }
-    write (1, "\n", 1);
-    return (0);
+    return (i);
 }
