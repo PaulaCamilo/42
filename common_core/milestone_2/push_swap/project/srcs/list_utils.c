@@ -6,11 +6,11 @@
 /*   By: ppaula-d <ppaula-d@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/19 22:16:23 by ppaula-d          #+#    #+#             */
-/*   Updated: 2025/01/19 22:30:41 by ppaula-d         ###   ########.fr       */
+/*   Updated: 2025/01/20 11:51:51 by ppaula-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../include/push_swap.h"
 
 t_stack	*listlast(t_stack *list)
 {

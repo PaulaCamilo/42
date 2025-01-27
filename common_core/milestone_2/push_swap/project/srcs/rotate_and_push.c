@@ -6,11 +6,11 @@
 /*   By: ppaula-d <ppaula-d@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/19 23:06:36 by ppaula-d          #+#    #+#             */
-/*   Updated: 2025/01/19 23:12:26 by ppaula-d         ###   ########.fr       */
+/*   Updated: 2025/01/20 11:52:21 by ppaula-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../include/push_swap.h"
 
 int	execute_rarb(t_stack **a, t_stack **b, int target, char id_stack)
 {
@@ -44,9 +44,9 @@ int	execute_rrarrb(t_stack **a, t_stack **b, int target, char id_stack)
 		while ((*a)->value != target && index_b(*b, target) > 0)
 			rrr(a, b, 0);
 		while ((*a)->value != target)
-			rra(a, 0); 
+			rra(a, 0);
 		while (index_b(*b, target) > 0)
-			rrb(b, 0); 
+			rrb(b, 0);
 		pb(a, b, 0);
 	}
 	else
