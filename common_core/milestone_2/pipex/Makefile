@@ -6,7 +6,7 @@
 #    By: ppaula-d <ppaula-d@student.42porto.com>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/10/16 12:39:09 by ppaula-d          #+#    #+#              #
-#    Updated: 2025/01/27 17:09:46 by ppaula-d         ###   ########.fr        #
+#    Updated: 2025/01/28 15:11:36 by ppaula-d         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,7 +18,7 @@ NAME 	= pipex
 CC 		= cc
 RM 		= rm -f
 FLAGS 	= -Wall -Werror -Wextra -g
-SRC 	= pipex.c utils.c
+SRC 	= pipex.c pipex_utils.c ft_utils.c
 OBJ 	= $(SRC:.c=.o)
 
 #--------------------------------------=---------------------------------------#
