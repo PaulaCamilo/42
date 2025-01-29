@@ -1,0 +1,119 @@
+int pipe(int pipefd[2];
+
+pipefd[0]: read end
+pipefd[1]: write end
+
+if pipe() == 0, sucess
+if pipe() == -1, failure with error description in errno
+
+to establish communication between parent and child process, we need to create a pipe
+then we create the child, having duplicated the pipes descriptors
+    . a child is a clone of its parent
+    . the fork system call allows our process to create a new process, which
+    will be an exact clone and executed simultaneously
+    . this way, our initial process will be the parent and the new process, its
+    child
+    . fork prototype, from the <unistd.h> library
+        pid_t fork(void);
+        . fork's return type (integer of type pid_t) will let us know if the
+        child process was successfully created
+        . fork's possible return values:
+            parent receives the child's PID
+            child reveives 0
+            in an event of an error, fork returns -1
+            . this means that if we see 0 as the return value of the fork,
+            we know we are in the child process, otherwise if we see a PID we
+            know we are in the parent
+    . the child process inherits the parent's instruction pointer/program
+    counter
+    . it means that when we fork a child process, it will be at the same place
+    in the code that the parent is because the parent's instruction pointer
+    register the memory address of the current instruction and is automatically
+    incremented to point to the next instruction to execute
+    
+this way, the child will be able to read from pipefd[0] the info written by the
+parent of pipefd[1] and vice-versa
+
+reading and writing in a pipe
+    . we use the reand and write system calls from the <unistd.h> library
+    . be careful with these two situations:
+        . if a process attempts to read from an empy pipe, read will remain 
+        blocked until data is written to it
+        . inversely, if a process tries to write to a full pipe - one that has
+        reached its size limit - write will remain blocked until enough data
+        has been read to allow the write operation to complete
+
+closing a pipe
+    . the read and write ends of a pipe can be closed with the close system
+    call from the <unistd.h> library
+    . it's important to close all unused duplicate file descriptors, otherwise,
+    we risk processes getting stuck in a suspended state
+
+since the child reads from the parent process, it needs always to close the 
+pipe write end of the process before starting to read. on the contrary, parent
+process writes, so it needs to close the read end of the child process before
+starting to write
+
+so how does a pipe in shell command behaves?
+    . for example, we have a test.txt file and we want to know how many lines
+    it has
+    . the cat test.txt command will display the contents of the file
+    . if we add the wc -l command with the | operator, we will display the
+    number of lines in our file
+    . so, if we execute this command, we notice that we don't get in the output
+    the text we wrote in the test.txt file, bu trather the number of lines
+    . how does this happen?
+        . so when we are working with pipes, it means that first, the shell
+        creates a pipe and two child processes, one for the cat command and one
+        for the wc command
+        . then, it redirects cat's standard output towards wc's standard input
+        . therefore, the cat command doesn't write its output in the standard
+        output - our terminal - but rather in the pipe
+        . then the wc command will go looking for the data in the pipe rather
+        than the standard input
+
+so how can we reproduce this behavior with a program?
+    . we can duplicate the write end of the pipe over the standard output in
+    the first child and read end over the standard input of the second child
+    . we do this usign the dup2 function
+
+how does the dup2 function works?
+    . it's a system call from the <unistd.h> library that allows us to 
+    duplicate a file descriptor
+    . dup2 prototype:
+        int dup2(int oldfd, int newfd)
+    . so it takes the fd we want to duplicate (old fd) as a parameter and
+    return the new fd, or -1 in case of error
+    . dup2 will try to close the newfd if it is in use before transforming it
+    into a copy of oldfd
+    . however, if oldfd is not a valid fd, the call will fail and newfd will
+    not be closed
+    . if oldfd and newfd are identical and valid, dup2 will just return the
+    newfd without doing anything further
+    . ls -la /proc/PID/fd
+        . this command is useful to check, during the process, our process'
+        list of open file descriptors
+
+and how could we create a pipeline like a shell?
+    . we need to create a pipe (a pair of file descriptors) for each child   
+    process, minus 1
+    . this way, the first child can write on its own pipe, the second can read
+    from the first one and write to its own, and so on
+    . if we tried to use a single pipe for all of the child's processes, they
+    would start fighting to read and write to a single pipe since the child
+    processes are executed simultaneously and they would end up waiting for an
+    input that would never arrive
+    . and above all, don't forget to close all of the pipes' unused fd in each
+    child process!
+
+
+
+REFERENCES:
+
+https://www.youtube.com/watch?v=2hba3etpoJg&list=PLfqABt5AS4FkW5mOn2Tn9ZZLLDwA3kZUY&index=8
+
+https://github.com/amauricoder/42_Pipex
+
+https://github.com/jdecorte-be/42-Pipex/tree/master
+
+
