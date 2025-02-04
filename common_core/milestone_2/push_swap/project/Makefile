@@ -6,7 +6,7 @@
 #    By: ppaula-d <ppaula-d@student.42porto.com>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/10/16 12:39:09 by ppaula-d          #+#    #+#              #
-#    Updated: 2025/01/20 11:49:36 by ppaula-d         ###   ########.fr        #
+#    Updated: 2025/02/03 13:40:05 by ppaula-d         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -34,7 +34,7 @@ SRC    	= srcs/push_swap.c \
 			srcs/rotation_type.c \
 			srcs/costs_ab.c \
 			srcs/costs_ba.c \
-			srcs/rotate_and_push.c \
+			srcs/rotate_and_push.c
 			
 OBJ 	= $(SRC:.c=.o)
 
