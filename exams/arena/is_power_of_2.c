@@ -1,37 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   sort_list.c                                        :+:      :+:    :+:   */
+/*   is_power_of_2.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ppaula-d <ppaula-d@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/08 19:35:53 by ppaula-d          #+#    #+#             */
-/*   Updated: 2025/01/21 15:09:29 by ppaula-d         ###   ########.fr       */
+/*   Created: 2025/01/21 18:24:26 by ppaula-d          #+#    #+#             */
+/*   Updated: 2025/01/21 18:25:38 by ppaula-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "list.h"
-
-t_list	*sort_list(t_list* lst, int (*cmp)(int, int))
+int	    is_power_of_2(unsigned int n)
 {
-	t_list	*lst_start;
-	int		to_swap;
-
-	if (!lst)
-		return (0);
-	lst_start = lst;
-	while (lst->next)
-	{
-		if (((*cmp)(lst->data, lst->next->data)) == 0)
-		{
-			to_swap = lst->data;
-			lst->data = lst->next->data;
-			lst->next->data = to_swap;
-			lst = lst_start;
-		}
-		else
-			lst = lst->next;
-	}
-	lst = lst_start;
-	return (lst);
+    // If n is 0, it's not a power of 2, so we return 0. 
+    // If n is a power of 2, n & n - 1 will be 0, so we return 1. 
+    return (n && !(n & n - 1)); 
 }
