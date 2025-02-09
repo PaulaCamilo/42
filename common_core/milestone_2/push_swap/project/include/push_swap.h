@@ -6,7 +6,7 @@
 /*   By: ppaula-d <ppaula-d@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/19 21:53:56 by ppaula-d          #+#    #+#             */
-/*   Updated: 2025/02/09 16:44:10 by ppaula-d         ###   ########.fr       */
+/*   Updated: 2025/02/09 23:55:35 by ppaula-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,22 +17,23 @@
 # include <stdlib.h>
 # include <limits.h>
 
+# include <stdio.h>
+
 typedef struct s_stack
 {
 	long			value;
 	long			index;
 	struct s_stack	*next;
-	struct s_stack	*prev;
 }	t_stack;
 
-// ft_utils.c
+// ft_utils_2.c
 int		ft_strlen(const char *str);
 char	**ft_split(char const *s, char c);
 
-// ft_utils_2.c
+// ft_utils.c
 void	ft_error(void);
 int		ft_is_digit(int n);
-int		ft_atol(const char *str);
+long long int	ft_atol(const char *str);
 
 // algorithm.c
 t_stack	*sub_process(char **argv);

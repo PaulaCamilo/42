@@ -6,7 +6,7 @@
 /*   By: ppaula-d <ppaula-d@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/19 21:53:40 by ppaula-d          #+#    #+#             */
-/*   Updated: 2025/02/09 18:29:29 by ppaula-d         ###   ########.fr       */
+/*   Updated: 2025/02/09 23:40:17 by ppaula-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,13 +16,16 @@ int	main(int ac, char **av)
 {
 	t_stack	*a;
 
+	a = NULL;
 	a = process(ac, av);
 	if (a == NULL)
 		return (0);
 	if (checkdup(a))
 	{
 		free_stack(&a);
-		ft_error();
+		printf("ERROR checkdup\n");
+		exit(1);
+		// ft_error();
 	}
 	if (!checksorted(a))
 		sort(&a);
