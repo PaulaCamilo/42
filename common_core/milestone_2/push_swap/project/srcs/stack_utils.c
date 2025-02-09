@@ -6,7 +6,7 @@
 /*   By: ppaula-d <ppaula-d@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/19 22:14:46 by ppaula-d          #+#    #+#             */
-/*   Updated: 2025/01/20 11:52:41 by ppaula-d         ###   ########.fr       */
+/*   Updated: 2025/02/09 16:40:01 by ppaula-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,10 @@ t_stack	*stack_new(int content)
 
 	new_node = malloc(sizeof (t_stack));
 	if (!new_node)
+	{
+		free(new_node);
 		ft_error();
+	}		
 	new_node->value = content;
 	new_node->next = NULL;
 	return (new_node);

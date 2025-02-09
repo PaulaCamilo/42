@@ -6,7 +6,7 @@
 /*   By: ppaula-d <ppaula-d@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/19 22:03:20 by ppaula-d          #+#    #+#             */
-/*   Updated: 2025/01/20 11:51:26 by ppaula-d         ###   ########.fr       */
+/*   Updated: 2025/02/09 17:14:25 by ppaula-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,5 @@ int	ft_atol(const char *str)
 		result = result * 10 + (*str - 48);
 		str++;
 	}
-	if ((signal * result) > 2147483647 || (signal * result) < -2147483648)
-		ft_error();
 	return (signal * result);
 }
