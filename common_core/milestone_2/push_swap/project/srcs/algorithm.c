@@ -6,13 +6,13 @@
 /*   By: ppaula-d <ppaula-d@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/19 21:59:27 by ppaula-d          #+#    #+#             */
-/*   Updated: 2025/02/09 16:53:07 by ppaula-d         ###   ########.fr       */
+/*   Updated: 2025/02/09 18:34:04 by ppaula-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
 
-t_stack	*sub_process(char **argv)
+t_stack	*sub_process(char **av)
 {
 	t_stack	*a;
 	t_stack	*new_node;
@@ -22,7 +22,7 @@ t_stack	*sub_process(char **argv)
 
 	a = NULL;
 	i = 0;
-	tmp = ft_split(argv[1], ' ');
+	tmp = ft_split(av[1], ' ');
 	while (tmp[i])
 	{
 		value = ft_atol(tmp[i]);
@@ -40,7 +40,7 @@ t_stack	*sub_process(char **argv)
 	return (a);
 }
 
-t_stack	*process(int argc, char **argv)
+t_stack	*process(int ac, char **av)
 {
 	t_stack	*a;
 	int		i;
@@ -48,15 +48,15 @@ t_stack	*process(int argc, char **argv)
 
 	i = 1;
 	a = NULL;
-	if (argc == 1)
+	if (ac == 1)
 		return (NULL);
-	if (argc == 2)
-		a = sub_process(argv);
+	if (ac == 2)
+		a = sub_process(av);
 	else
 	{
-		while (i < argc)
+		while (i < ac)
 		{
-			value = ft_atol(argv[i]);
+			value = ft_atol(av[i]);
 			if (value > INT_MAX || value < INT_MIN)
 			{
 				free_stack(&a);
