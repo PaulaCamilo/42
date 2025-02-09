@@ -6,7 +6,7 @@
 /*   By: ppaula-d <ppaula-d@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/19 22:03:20 by ppaula-d          #+#    #+#             */
-/*   Updated: 2025/02/09 17:53:05 by ppaula-d         ###   ########.fr       */
+/*   Updated: 2025/02/09 23:16:19 by ppaula-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ int	ft_is_digit(int n)
 	return (0);
 }
 
-long	ft_atol(const char *str)
+int	ft_atol(const char *str)
 {
 	int				signal;
 	long long int	result;
