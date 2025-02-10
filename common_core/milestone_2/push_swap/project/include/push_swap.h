@@ -6,7 +6,7 @@
 /*   By: ppaula-d <ppaula-d@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/19 21:53:56 by ppaula-d          #+#    #+#             */
-/*   Updated: 2025/02/09 23:55:35 by ppaula-d         ###   ########.fr       */
+/*   Updated: 2025/02/10 00:26:59 by ppaula-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,8 @@ typedef struct s_stack
 	long			index;
 	struct s_stack	*next;
 }	t_stack;
+
+int	is_numeric(char *str);
 
 // ft_utils_2.c
 int		ft_strlen(const char *str);

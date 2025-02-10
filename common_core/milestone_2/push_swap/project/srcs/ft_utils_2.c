@@ -6,7 +6,7 @@
 /*   By: ppaula-d <ppaula-d@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/19 22:00:18 by ppaula-d          #+#    #+#             */
-/*   Updated: 2025/02/09 23:48:42 by ppaula-d         ###   ########.fr       */
+/*   Updated: 2025/02/10 00:24:41 by ppaula-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,19 +25,19 @@ int	ft_strlen(const char *str)
 static int	count_words(const char *str, char c)
 {
 	int	i;
-	int	trigger;
+	int	sep;
 
 	i = 0;
-	trigger = 0;
+	sep = 0;
 	while (*str)
 	{
-		if (*str != c && trigger == 0)
+		if (*str != c && sep == 0)
 		{
-			trigger = 1;
+			sep = 1;
 			i++;
 		}
 		else if (*str == c)
-			trigger = 0;
+			sep = 0;
 		str++;
 	}
 	return (i);
@@ -50,6 +50,8 @@ static char	*word_dup(const char *str, int start, int finish)
 
 	i = 0;
 	word = malloc((finish - start + 1) * sizeof(char));
+	if (!word)
+		return (NULL);
 	while (start < finish)
 		word[i++] = str[start++];
 	word[i] = '\0';

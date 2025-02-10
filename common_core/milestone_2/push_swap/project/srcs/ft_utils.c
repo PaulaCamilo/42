@@ -6,7 +6,7 @@
 /*   By: ppaula-d <ppaula-d@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/19 22:03:20 by ppaula-d          #+#    #+#             */
-/*   Updated: 2025/02/09 23:55:18 by ppaula-d         ###   ########.fr       */
+/*   Updated: 2025/02/10 00:30:07 by ppaula-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,9 +20,7 @@ void	ft_error(void)
 
 int	ft_is_digit(int n)
 {
-	if (n >= '0' && n <= '9')
-		return (1);
-	return (0);
+    return (n >= '0' && n <= '9');
 }
 
 long long int	ft_atol(const char *str)
