@@ -6,7 +6,7 @@
 /*   By: ppaula-d <ppaula-d@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/28 14:50:28 by ppaula-d          #+#    #+#             */
-/*   Updated: 2025/02/03 15:23:35 by ppaula-d         ###   ########.fr       */
+/*   Updated: 2025/02/10 10:16:10 by ppaula-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,7 +84,6 @@ char	**ft_split(char const *s, char c)
 
 	if (!s)
 		return (NULL);
-
 	num_words = 0;
 	num_words = count_words(s, c);
 	array = malloc(sizeof(char *) * (num_words + 1));

@@ -6,7 +6,7 @@
 /*   By: ppaula-d <ppaula-d@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/27 17:41:46 by ppaula-d          #+#    #+#             */
-/*   Updated: 2025/02/04 13:55:02 by ppaula-d         ###   ########.fr       */
+/*   Updated: 2025/02/10 10:15:21 by ppaula-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,8 +50,9 @@ int	open_util(char *file, int inp_or_outp)
 		return_v = open(file, O_RDONLY, 0444);
 	if (inp_or_outp == 1)
 		return_v = open(file, O_WRONLY | O_CREAT | O_TRUNC, 0644);
-	return(return_v);
+	return (return_v);
 }
+
 void	free_str(char **str)
 {
 	int	i;
@@ -76,7 +77,7 @@ char	*get_path(char *cmd, char **env)
 		i++;
 	full_path = ft_split(env[i] + 5, ':');
 	i = 0;
-	while(full_path[i])
+	while (full_path[i])
 	{
 		part_path = ft_strjoin(full_path[i], "/");
 		path = ft_strjoin(part_path, cmd);

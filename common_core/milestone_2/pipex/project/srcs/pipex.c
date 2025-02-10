@@ -6,7 +6,7 @@
 /*   By: ppaula-d <ppaula-d@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/27 17:42:02 by ppaula-d          #+#    #+#             */
-/*   Updated: 2025/02/04 13:55:41 by ppaula-d         ###   ########.fr       */
+/*   Updated: 2025/02/10 10:16:36 by ppaula-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ void	execute(char *cmd, char **env, int *fd)
 	free(path);
 }
 
-void child(char **av, int *pipe_fd, char **env)
+void	child(char **av, int *pipe_fd, char **env)
 {
 	int	fd;
 

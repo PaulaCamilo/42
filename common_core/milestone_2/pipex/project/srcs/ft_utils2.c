@@ -6,7 +6,7 @@
 /*   By: ppaula-d <ppaula-d@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/03 11:30:56 by ppaula-d          #+#    #+#             */
-/*   Updated: 2025/02/03 14:28:01 by ppaula-d         ###   ########.fr       */
+/*   Updated: 2025/02/10 10:13:36 by ppaula-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,6 +61,7 @@ size_t	ft_strlcpy(char *dest, const char *src, size_t size)
 	}
 	return (ft_strlen(src));
 }
+
 void	*ft_memcpy(void *dest, const void *src, size_t n)
 {
 	char			*d;
