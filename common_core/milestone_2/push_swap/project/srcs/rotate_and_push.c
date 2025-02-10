@@ -6,15 +6,15 @@
 /*   By: ppaula-d <ppaula-d@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/19 23:06:36 by ppaula-d          #+#    #+#             */
-/*   Updated: 2025/01/20 11:52:21 by ppaula-d         ###   ########.fr       */
+/*   Updated: 2025/02/10 09:33:25 by ppaula-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
 
-int	execute_rarb(t_stack **a, t_stack **b, int target, char id_stack)
+int	execute_rarb(t_stack **a, t_stack **b, int target, char id_s)
 {
-	if (id_stack == 'a')
+	if (id_s == 'a')
 	{
 		while ((*a)->value != target && index_b(*b, target) > 0)
 			rr(a, b, 0);
@@ -37,9 +37,9 @@ int	execute_rarb(t_stack **a, t_stack **b, int target, char id_stack)
 	return (-1);
 }
 
-int	execute_rrarrb(t_stack **a, t_stack **b, int target, char id_stack)
+int	execute_rrarrb(t_stack **a, t_stack **b, int target, char id_s)
 {
-	if (id_stack == 'a')
+	if (id_s == 'a')
 	{
 		while ((*a)->value != target && index_b(*b, target) > 0)
 			rrr(a, b, 0);
@@ -62,9 +62,9 @@ int	execute_rrarrb(t_stack **a, t_stack **b, int target, char id_stack)
 	return (-1);
 }
 
-int	execute_rrarb(t_stack **a, t_stack **b, int target, char id_stack)
+int	execute_rrarb(t_stack **a, t_stack **b, int target, char id_s)
 {
-	if (id_stack == 'a')
+	if (id_s == 'a')
 	{
 		while ((*a)->value != target)
 			rra(a, 0);
@@ -83,9 +83,9 @@ int	execute_rrarb(t_stack **a, t_stack **b, int target, char id_stack)
 	return (-1);
 }
 
-int	execute_rarrb(t_stack **a, t_stack **b, int target, char id_stack)
+int	execute_rarrb(t_stack **a, t_stack **b, int target, char id_s)
 {
-	if (id_stack == 'a')
+	if (id_s == 'a')
 	{
 		while ((*a)->value != target)
 			ra(a, 0);

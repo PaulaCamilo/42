@@ -6,7 +6,7 @@
 /*   By: ppaula-d <ppaula-d@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/19 21:59:27 by ppaula-d          #+#    #+#             */
-/*   Updated: 2025/02/10 00:18:25 by ppaula-d         ###   ########.fr       */
+/*   Updated: 2025/02/10 09:27:44 by ppaula-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,10 @@
 
 t_stack	*sub_process(char **av)
 {
-	t_stack	*a;
-	t_stack	*new_node;
-	char	**tmp;
-	int		i;
+	t_stack			*a;
+	t_stack			*new_node;
+	char			**tmp;
+	int				i;
 	long long int	value;
 
 	a = NULL;
@@ -42,8 +42,8 @@ t_stack	*sub_process(char **av)
 
 t_stack	*process(int ac, char **av)
 {
-	t_stack	*a;
-	int		i;
+	t_stack			*a;
+	int				i;
 	long long int	value;
 
 	i = 1;
