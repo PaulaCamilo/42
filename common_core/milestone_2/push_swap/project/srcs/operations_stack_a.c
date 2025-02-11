@@ -6,7 +6,7 @@
 /*   By: ppaula-d <ppaula-d@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/19 22:38:32 by ppaula-d          #+#    #+#             */
-/*   Updated: 2025/01/20 11:52:03 by ppaula-d         ###   ########.fr       */
+/*   Updated: 2025/02/11 22:22:01 by ppaula-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void	ra(t_stack **a, int j)
 	if (!*a || !(*a)->next)
 		return ;
 	tmp = *a;
-	*a = listlast(*a);
+	*a = ft_listlast(*a);
 	(*a)->next = tmp;
 	*a = tmp->next;
 	tmp->next = NULL;

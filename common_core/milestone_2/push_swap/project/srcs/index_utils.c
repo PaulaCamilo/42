@@ -6,7 +6,7 @@
 /*   By: ppaula-d <ppaula-d@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/19 22:53:06 by ppaula-d          #+#    #+#             */
-/*   Updated: 2025/01/20 11:51:42 by ppaula-d         ###   ########.fr       */
+/*   Updated: 2025/02/11 22:29:05 by ppaula-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ int	index_b(t_stack *stack_b, int target)
 	t_stack	*current;
 
 	stack_index = 1;
-	if (target > stack_b->value && target < listlast(stack_b)->value)
+	if (target > stack_b->value && target < ft_listlast(stack_b)->value)
 		stack_index = 0;
 	else if (target > max(stack_b) || target < min(stack_b))
 		stack_index = index_stack(stack_b, max(stack_b));
@@ -59,7 +59,7 @@ int	index_a(t_stack *stack_a, int target)
 	t_stack	*current;
 
 	stack_index = 1;
-	if (target < stack_a->value && target > listlast(stack_a)->value)
+	if (target < stack_a->value && target > ft_listlast(stack_a)->value)
 		stack_index = 0;
 	else if (target > max(stack_a) || target < min(stack_a))
 		stack_index = index_stack(stack_a, min(stack_a));

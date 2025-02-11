@@ -6,37 +6,41 @@
 /*   By: ppaula-d <ppaula-d@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/19 22:14:46 by ppaula-d          #+#    #+#             */
-/*   Updated: 2025/02/10 09:29:37 by ppaula-d         ###   ########.fr       */
+/*   Updated: 2025/02/11 22:37:58 by ppaula-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
 
-void	add_back(t_stack **stack, t_stack *new_node)
+void	free_stack(t_stack **list)
 {
-	t_stack	*last_node;
+	t_stack	*temp;
 
-	if (!stack)
-		return ;
-	if (!*stack)
-		*stack = new_node;
-	else
+	while (*list)
 	{
-		last_node = listlast(*stack);
-		last_node->next = new_node;
+		temp = *list;
+		*list = (*list)->next;
+		free(temp);
 	}
 }
 
-t_stack	*stack_new(int content)
+void	stack_new(t_stack **head, int new_data)
 {
 	t_stack	*new_node;
+	t_stack	*last;
 
-	new_node = malloc(sizeof (t_stack));
-	if (!new_node)
-		return (0);
-	new_node->value = content;
+	new_node = (t_stack *)malloc(sizeof(t_stack));
+	new_node->value = new_data;
 	new_node->next = NULL;
-	return (new_node);
+	if (*head == NULL)
+	{
+		*head = new_node;
+		return ;
+	}
+	last = *head;
+	while (last->next != NULL)
+		last = last->next;
+	last->next = new_node;
 }
 
 int	checkdup(t_stack *a)

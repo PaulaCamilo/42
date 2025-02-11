@@ -6,7 +6,7 @@
 /*   By: ppaula-d <ppaula-d@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/19 22:31:28 by ppaula-d          #+#    #+#             */
-/*   Updated: 2025/02/10 12:09:46 by ppaula-d         ###   ########.fr       */
+/*   Updated: 2025/02/11 22:29:19 by ppaula-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ void	sort_b_until_three(t_stack **stack_a, t_stack **stack_b)
 	int		min_op;
 	t_stack	*cur;
 
-	while (listsize(*stack_a) > 3 && !checksorted(*stack_a))
+	while (ft_listsize(*stack_a) > 3 && !checksorted(*stack_a))
 	{
 		cur = *stack_a;
 		min_op = rotate_ab(*stack_a, *stack_b);
@@ -71,13 +71,13 @@ t_stack	*sort_b(t_stack **stack_a)
 	t_stack	*stack_b;
 
 	stack_b = NULL;
-	while (listsize(*stack_a) > 3 && !checksorted(*stack_a))
+	while (ft_listsize(*stack_a) > 3 && !checksorted(*stack_a))
 	{
 		pb (stack_a, &stack_b, 0);
 		if (checksorted(stack_b))
 			break ;
 	}
-	if (listsize(*stack_a) > 3)
+	if (ft_listsize(*stack_a) > 3)
 		sort_b_until_three(stack_a, &stack_b);
 	if (!checksorted(*stack_a))
 		sort_three(stack_a);
@@ -117,15 +117,15 @@ void	sort(t_stack **stack_a)
 	int		stack_size;
 
 	stack_b = NULL;
-	if (listsize(*stack_a) == 2)
+	if (ft_listsize(*stack_a) == 2)
 		sa(stack_a, 0);
 	else
 	{
 		stack_b = sort_b(stack_a);
 		stack_a = sort_a(stack_a, &stack_b);
 		min_index = index_stack(*stack_a, min(*stack_a));
-		stack_size = listsize(*stack_a);
-		if (min_index < listsize(*stack_a) - min_index)
+		stack_size = ft_listsize(*stack_a);
+		if (min_index < ft_listsize(*stack_a) - min_index)
 		{
 			while ((*stack_a)->value != min(*stack_a))
 				ra(stack_a, 0);

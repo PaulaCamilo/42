@@ -6,13 +6,13 @@
 /*   By: ppaula-d <ppaula-d@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/19 22:16:23 by ppaula-d          #+#    #+#             */
-/*   Updated: 2025/01/20 11:51:51 by ppaula-d         ###   ########.fr       */
+/*   Updated: 2025/02/11 22:31:47 by ppaula-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
 
-t_stack	*listlast(t_stack *list)
+t_stack	*ft_listlast(t_stack *list)
 {
 	if (!list)
 		return (NULL);
@@ -21,7 +21,7 @@ t_stack	*listlast(t_stack *list)
 	return (list);
 }
 
-int	listsize(t_stack *list)
+int	ft_listsize(t_stack *list)
 {
 	size_t	i;
 
@@ -32,6 +32,22 @@ int	listsize(t_stack *list)
 		i++;
 	}
 	return (i);
+}
+
+void	ft_lstadd_back(t_stack **lst, t_stack *new)
+{
+	t_stack	*last;
+
+	if (lst)
+	{
+		if (*lst)
+		{
+			last = ft_listlast(*lst);
+			last->next = new;
+		}
+		else
+			*lst = new;
+	}
 }
 
 int	min(t_stack *a)

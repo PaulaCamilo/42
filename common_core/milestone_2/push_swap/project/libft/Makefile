@@ -6,56 +6,50 @@
 #    By: ppaula-d <ppaula-d@student.42porto.com>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/10/16 12:39:09 by ppaula-d          #+#    #+#              #
-#    Updated: 2025/02/11 23:20:49 by ppaula-d         ###   ########.fr        #
+#    Updated: 2025/02/11 23:05:04 by ppaula-d         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 #--------------------------------------=---------------------------------------#
-#			        			   VARIABLES				   			       #
+#			           VARIABLES				       #
 #--------------------------------------=---------------------------------------#
 
-NAME 		= push_swap
-CC 			= cc
-RM 			= rm -f
-FLAGS 		= -Wall -Werror -Wextra -g 
-INCLUDE 	= -I ./include
-LIBFT_DIR 	= libft
-LIBFT 		= $(LIBFT_DIR)/libft.a
-SRC    		= srcs/costs_ab.c \
-				srcs/costs_ba.c \
-				srcs/index_utils.c \
-				srcs/list_utils.c \
-				srcs/operations_both_stacks.c \
-				srcs/operations_stack_a.c \
-				srcs/operations_stack_b.c \
-				srcs/parsing.c \
-				srcs/push_swap.c \
-				srcs/rotate_and_push.c \
-				srcs/rotation_type.c \
-				srcs/sort_utils.c \
-				srcs/stack_utils.c \
-			
-OBJ 	= $(SRC:.c=.o)
+NAME    = libft.a
+CC      = cc
+CFLAGS  = -Wall -Wextra -Werror
+SRC_DIR = libft
+SRCS    = ft_isalpha.c ft_isdigit.c ft_isalnum.c ft_isascii.c ft_isprint.c \
+        ft_strlen.c  ft_memset.c ft_bzero.c ft_memcpy.c ft_memmove.c \
+        ft_strlcpy.c ft_strlcat.c ft_toupper.c ft_tolower.c ft_strchr.c \
+        ft_strrchr.c ft_strncmp.c ft_memchr.c ft_memcmp.c ft_strnstr.c \
+        ft_atoi.c ft_calloc.c ft_strdup.c ft_substr.c ft_strjoin.c \
+        ft_strtrim.c ft_split.c ft_itoa.c ft_strmapi.c ft_striteri.c \
+        ft_putchar_fd.c ft_putstr_fd.c ft_putendl_fd.c ft_putnbr_fd.c \
+        ft_free.c ft_isdigitplussign.c ft_isnumeric.c ft_error.c ft_atol.c \
+        ft_free_str.c ft_arraylen.c ft_free_gnl.c \
+        
+OBJS    = $(SRCS:.c=.o)
+AR      = ar rcs
+RM      = rm -f
 
 #--------------------------------------=---------------------------------------#
-#			        			     RULES      			    		       #
+#			             RULES      			       #
 #--------------------------------------=---------------------------------------#
 
-all : $(LIBFT) $(NAME)
+$(NAME): $(OBJS)
+	$(AR) $(NAME) $(OBJS)
 
-$(LIBFT):
-		@$(MAKE) -C $(LIBFT_DIR)
+$(SRC_DIR)/%.o: $(SRC_DIR)/%.c
+	$(CC) $(CFLAGS) -c $< -o $@
 
-$(NAME): $(LIBFT) $(OBJ) 
-	$(CC) $(FLAGS) $(INCLUDE) $(OBJ) $(LIBFT) -o $(NAME)
+all:    $(NAME)
 
 clean:
-	$(RM) $(OBJ)
+	$(RM) $(OBJS)
 
 fclean: clean
-	$(RM) $(NAME) $(LIBFT)
-	@$(MAKE) -C $(LIBFT_DIR) fclean
+	$(RM) $(NAME)
 
 re: fclean all
 
-.PHONY:		all clean fclean re
+.PHONY: all fclean re
