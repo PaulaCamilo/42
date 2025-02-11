@@ -6,7 +6,7 @@
 /*   By: ppaula-d <ppaula-d@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/19 21:53:56 by ppaula-d          #+#    #+#             */
-/*   Updated: 2025/02/10 09:33:13 by ppaula-d         ###   ########.fr       */
+/*   Updated: 2025/02/10 15:02:57 by ppaula-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ typedef struct s_stack
 
 // ft_utils.c
 long long int	ft_atol(const char *str);
-int				is_numeric(char *str);
+int				ft_is_numeric(char *str);
 void			ft_error(void);
 int				ft_is_digit(int n);
 

@@ -6,7 +6,7 @@
 /*   By: ppaula-d <ppaula-d@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/19 21:53:40 by ppaula-d          #+#    #+#             */
-/*   Updated: 2025/02/10 09:30:06 by ppaula-d         ###   ########.fr       */
+/*   Updated: 2025/02/10 15:02:57 by ppaula-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ int	main(int ac, char **av)
 	i = 1;
 	while (i < ac)
 	{
-		if (!is_numeric(av[i]))
+		if (!ft_is_numeric(av[i]))
 			ft_error();
 		i++;
 	}

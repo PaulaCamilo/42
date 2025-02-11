@@ -6,13 +6,13 @@
 /*   By: ppaula-d <ppaula-d@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/19 22:03:20 by ppaula-d          #+#    #+#             */
-/*   Updated: 2025/02/10 09:28:54 by ppaula-d         ###   ########.fr       */
+/*   Updated: 2025/02/10 15:02:57 by ppaula-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
 
-int	is_numeric(char *str)
+int	ft_is_numeric(char *str)
 {
 	int	i;
 
