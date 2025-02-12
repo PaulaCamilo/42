@@ -6,7 +6,7 @@
 /*   By: ppaula-d <ppaula-d@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/11 22:14:08 by ppaula-d          #+#    #+#             */
-/*   Updated: 2025/02/11 22:14:20 by ppaula-d         ###   ########.fr       */
+/*   Updated: 2025/02/12 00:07:45 by ppaula-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,4 +23,3 @@ int	ft_arraylen(char **array)
 		len++;
 	return (len);
 }
-

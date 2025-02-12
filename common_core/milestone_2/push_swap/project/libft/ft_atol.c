@@ -6,7 +6,7 @@
 /*   By: ppaula-d <ppaula-d@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/11 22:11:39 by ppaula-d          #+#    #+#             */
-/*   Updated: 2025/02/11 22:11:49 by ppaula-d         ###   ########.fr       */
+/*   Updated: 2025/02/12 00:08:19 by ppaula-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 long long	ft_atol(const char *str)
 {
-	int		i;
-	int		signal;
+	int			i;
+	int			signal;
 	long long	count;
 
 	i = 0;
