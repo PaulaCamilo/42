@@ -1,0 +1,137 @@
+PUSH_SWAP
+
+push_swap.c
+
+    . entry point of the program;
+    . parses input arguments, validates them, and initialize the stack;
+            - args_parsing(ac, av);
+            - args_val(avtemp);
+            - process(ft_arraylen(avtemp), avtemp);
+    . checks for duplicates and sorts the stack if necessary;
+            - checkdup(a);
+            - checksorted(a);
+            - sort(&a);
+parsing.c
+
+    . handles argument parsing and validation
+            - args_parsing(ac, av);
+                - ft_split(av[1], ' ') // if (ac == 2)
+                - ft_strdup(av[i]); // while (++i < ac)
+                - return (avtemp);
+            - args_val(char **avtemp);
+                - ft_arraylen(avtemp) // while (avtemp[i] && avtemp[i][j]
+                - ft_isdigitplussign
+                - return (0) // if is valid
+                - return (1) // if not valid
+    . if arguments are valid, converts them into a stack structure
+            - process(int ac, char **av)
+                - ft_atol(av[i]);
+                - free_stack(&a) // is value > INT_MAX || value < INT_MIN
+                        - ft_error;
+                - stack_new(&a, (int)value);
+                - return(a);
+stack_utils.c
+
+    . checks if there are any duplicate arguments
+            - checkdup(a);
+    . checks if the stack is already sorted
+            - checksorted(a);
+    . if not,
+            - sort(&a);
+sort_utils.c
+
+    . manages the sorting process by moving elements between stacks a and b and
+        ensuring the final stack is sorted
+    . if stack_a has only two element,
+        - sa(stack_a, 0); 
+                // the zero is to give the funtion order to print the
+                   operation, in this case, the swap operation, where it simply
+                   swaps the two elements of the stack
+    . else, it creates the stack_b
+        - sort_b(stack_a) 
+                // here the program moves elements from stack_a to 
+                   stack_b until stack_a has three elements left,
+                   and then sorts stack_a
+    . if, when pushing to stack_b, its sorted, it breaks
+        - if (checksorted(stack_b)
+                break;
+    . if not, imagine stack_a has more than three elements and is not sorted
+        - sort_b_until_three(stack_a, &stack_b) 
+                // it moves elements from stack_a to stack_b until stack_a has
+                    three elements left
+                // while stack_a has more than three elements and it's not
+                    sorted, it calculates the minimum operation cost to move an
+                    element from stack_a to stack_b and executes the
+                    corresponding operations, meaning, everytime it moves an
+                    element from stack_a to stack_b, it calculates the least 
+                    costly of the operations so that when it goes to stack_b
+                    it goes already sorted, according to the positions of the
+                    elements in stack_a that will get in stack_bj
+       - GitHub Copilot
+Explanation of execute_rrarb Function
+The execute_rrarb function is responsible for executing a specific sequence of operations to move an element from one stack to another. This function is used when the calculated minimum cost involves reverse rotating stack A and rotating stack B.
+
+Function Definition
+Parameters
+t_stack **a: Pointer to stack A.
+t_stack **b: Pointer to stack B.
+int target: The target value to be moved.
+char id_s: Identifier to determine the direction of the move ('a' for moving from stack A to stack B, 'b' for moving from stack B to stack A).
+How It Works
+Check the Identifier (id_s):
+
+The function first checks the value of id_s to determine the direction of the move.
+If id_s is 'a', it means we are moving the target value from stack A to stack B.
+If id_s is 'b', it means we are moving the target value from stack B to stack A.
+Reverse Rotate Stack A:
+
+If id_s is 'a':
+The function reverse rotates stack A (rra) until the target value is at the top of stack A.
+If id_s is 'b':
+The function reverse rotates stack A (rra) until the target value is at the correct position in stack A.
+Rotate Stack B:
+
+If id_s is 'a':
+The function rotates stack B (rb) until the correct position for the target value is found in stack B.
+If id_s is 'b':
+The function rotates stack B (rb) until the target value is at the top of stack B.
+Push the Target Value:
+
+If id_s is 'a':
+The function pushes the target value from stack A to stack B (pb).
+If id_s is 'b':
+The function pushes the target value from stack B to stack A (pa).
+Example Execution
+Let's walk through an example to illustrate how the execute_rrarb function works.
+
+Initial State:
+
+Stack A: [3, 2, 5, 1, 4]
+Stack B: [6, 7, 8]
+Target value: 5
+Identifier: 'a' (moving from stack A to stack B)
+Reverse Rotate Stack A:
+
+The function reverse rotates stack A until the target value (5) is at the top.
+Stack A after reverse rotations: [5, 1, 4, 3, 2]
+Rotate Stack B:
+
+The function rotates stack B until the correct position for the target value (5) is found.
+Stack B after rotations: [6, 7, 8] (no change needed in this example)
+Push the Target Value:
+
+The function pushes the target value (5) from stack A to stack B.
+Stack A after push: [1, 4, 3, 2]
+Stack B after push: [5, 6, 7, 8]
+Final State:
+
+Stack A: [1, 4, 3, 2]
+Stack B: [5, 6, 7, 8]
+Summary
+The execute_rrarb function performs a sequence of operations to move a target value from one stack to another.
+It uses reverse rotations on stack A and rotations on stack B to position the target value correctly.
+The function then pushes the target value from the source stack to the destination stack.
+This process ensures that the target value is moved efficiently, minimizing the number of operations required.
+    
+
+
