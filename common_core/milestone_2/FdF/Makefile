@@ -29,9 +29,6 @@ OBJS		= $(SRCS:.c=.o)
 LIBFT_DIR	= ./libft
 LIBFT		= $(LIBFT_DIR)/libft.a
 
-GNL_DIR		= ./gnl
-GNL			= $(GNL_DIR)/get_next_line.a
-
 MLX_DIR		= ./mlx
 MLX			= $(MLX_DIR)/libmlx.a
 
@@ -42,9 +39,6 @@ RM			= rm -f
 MLX_FLAGS	= -L$(MLX_DIR) -lmlx -lXext -lX11 -lm
 
 all:		$(GNL) $(LIBFT) $(MLX) $(NAME)
-
-$(GNL):
-				@$(MAKE) -C $(GNL_DIR)
 
 $(MLX):
 				@if [ ! -d "$(MLX_DIR)" ]; then \
@@ -57,20 +51,18 @@ $(LIBFT):
 				@$(MAKE) -C $(LIBFT_DIR)
 
 $(NAME): 	$(OBJS) $(LIBFT) $(MLX)	
-				$(CC) $(CFLAGS) $(SRC) $(GNL) $^ $(MLX_FLAGS) -o $(NAME)
+				$(CC) $(CFLAGS) $(SRC) $^ $(MLX_FLAGS) -o $(NAME)
 
 %.o: %.c
 				$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
 				$(RM) $(OBJS)
-				@$(MAKE) fclean -C $(GNL_DIR)
 				@$(MAKE) fclean -C $(LIBFT_DIR)
 				@$(MAKE) clean -C $(MLX_DIR)
 
 fclean:		clean
 				$(RM) $(NAME)
-				@$(MAKE) fclean -C $(GNL_DIR)
 				@$(MAKE) fclean -C $(LIBFT_DIR)
 				@$(MAKE) clean -C $(MLX_DIR)
 				@if [ -d "$(MLX_DIR)" ]; then \
