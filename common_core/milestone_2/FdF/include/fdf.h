@@ -6,7 +6,7 @@
 /*   By: ppaula-d <ppaula-d@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/14 11:54:08 by ppaula-d          #+#    #+#             */
-/*   Updated: 2025/03/11 16:26:35 by ppaula-d         ###   ########.fr       */
+/*   Updated: 2025/03/17 19:49:53 by ppaula-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -119,18 +119,11 @@ int		get_color(int z, int has_color, int color, int has_any_color);
 void	put_pixel(t_render *render, int x, int y, int color);
 void	bresenham(t_render *render, t_line *line);
 
-// init_mlx.c
-int		init_render(t_render *render, t_point **data_array, int rows,
-			int max_cols);
-void	initialize_render(t_render *render, t_point **data_array, int rows,
-			int max_cols);
+// handling.c
 int		handle_keypress(int keycode, t_render *render);
 void	handle_zoom_rotate(int keycode, t_render *render);
 void	handle_move_proj(int keycode, t_render *render);
 int		handle_close(t_render *render);
-void	setup_and_run_mlx(t_render *render);
-void	reset_image(t_render *render);
-void	draw_menu(t_render *render);
 
 // input_check.c
 int		check_ac(int ac);
@@ -163,6 +156,15 @@ void	draw_l_next_row_point(t_render *render, t_point p1, int i, int j);
 t_point	get_projected_point_and_color(t_render *render, int i, int j);
 void	draw_l_next_col_point(t_render *render, t_point p1, int i, int j);
 void	render_map(t_render *render);
+
+// setup.c
+int		init_render(t_render *render, t_point **data_array, int rows,
+			int max_cols);
+void	initialize_render(t_render *render, t_point **data_array, int rows,
+			int max_cols);
+void	setup_and_run_mlx(t_render *render);
+void	reset_image(t_render *render);
+void	draw_menu(t_render *render);
 
 // utils.c
 t_point	rotate_point(t_point point, double rotation_x);

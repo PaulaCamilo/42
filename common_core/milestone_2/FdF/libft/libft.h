@@ -6,7 +6,7 @@
 /*   By: ppaula-d <ppaula-d@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/21 14:21:20 by ppaula-d          #+#    #+#             */
-/*   Updated: 2025/03/05 14:25:54 by ppaula-d         ###   ########.fr       */
+/*   Updated: 2025/03/17 19:38:17 by ppaula-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,7 @@ int			ft_isalpha(int c);
 int			ft_isascii(int c);
 int			ft_isdigit(int c);
 int			ft_isdigitplussign(int i);
+int			ft_ishex(char c);
 int			ft_isnumeric(char *str);
 int			ft_isprint(int c);
 char		*ft_itoa(int n);
