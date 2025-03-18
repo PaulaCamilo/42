@@ -6,7 +6,7 @@
 /*   By: ppaula-d <ppaula-d@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/14 11:54:08 by ppaula-d          #+#    #+#             */
-/*   Updated: 2025/03/17 19:49:53 by ppaula-d         ###   ########.fr       */
+/*   Updated: 2025/03/18 08:11:19 by ppaula-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,6 @@
 # include <stdlib.h>
 # include <string.h>
 # include <unistd.h>
-
-# include <stdio.h>
 
 # define WIDTH 1920
 # define HEIGHT 1080
